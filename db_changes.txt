@@ -1,0 +1,16 @@
+ALTER TABLE  `data_merchants` ADD  `address` VARCHAR( 256 ) NULL AFTER  `title`
+
+
+
+INSERT INTO `data_merchants` (
+`id` ,
+`keyword` ,
+`title` ,
+`address` ,
+`merchant_key` ,
+`id_affiliate` ,
+`date_added`
+)
+VALUES (
+NULL ,  'amazon.co.uk',  'Amazon',  'http://www.amazon.co.uk',  '', NULL ,  'NOW()'
+);

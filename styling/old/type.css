@@ -1,0 +1,70 @@
+
+
+/* ==========================================================================
+   CSS Created by Cathal Healy
+   
+   use this file to create styles for type on the site
+   ========================================================================== */
+
+h1 {
+	font-size: 2em;
+	color: #414141;
+}
+div.item-details h1 {
+	font-size: 1.1em;
+	color: #414141;
+}
+div.deal-summary h1 {
+	font-size: 1.7em;
+	color: #414141;
+}
+h2 {
+	font-size: 1.7em;
+	color: #414141;
+}
+h2.title {
+	font-size: 1.8em;
+	color: #515151;
+}
+h3.icon-comment {
+	padding: 0 0 0 45px;
+	background: url('/web_graphics/icons/comment-icon.png') 5px center no-repeat;
+}
+h3 {
+	font-size: 1.3em;
+	color: #414141;
+}
+h4 {
+	font-size: 1.1em;
+	color: #414141;
+}
+
+p {
+	font-size: 1.2em;
+	color: #414141;
+1	line-height:100%;
+	padding:2px;
+}
+
+p.medium {
+	font-size: 1em;
+}
+
+p.small {
+	font-size: 0.8em;
+}
+span.tiny {
+	font-size: 0.9em;
+	color: #414141;
+	line-height:40%;
+}
+
+
+
+
+
+
+
+
+
+

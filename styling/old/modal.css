@@ -1,0 +1,90 @@
+
+
+/* ==========================================================================
+   CSS Created by Cathal Healy
+   
+   use this file to create styles for lightbox and dropbox
+   ========================================================================== */
+
+div#modal {
+	position: absolute;
+	display: block;
+	width: auto;
+	height: auto;
+	z-index:2000;
+	background: #42bb9c;
+	padding: 60px 0px 0px 0px;
+	box-shadow: 0px 0px 6px 1px #c1c1c1;
+}
+div#fade {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+	background: #fff;
+	z-index:1500;
+}
+a#close-modal {
+	position: absolute;
+	width: 50px;
+	right: 10px;
+	top: 10px;
+	color: #fff;
+	background: url('/web_graphics/close-button.png') right center no-repeat;
+	display:block;
+	height:20px;
+}
+div.modal-content-wrapper {
+	position: auto;
+	top:-10px;
+}
+div.modal-content-wrapper img.modal-arrow {
+	position:absolute;
+	top:48px;
+	left:70px;
+}
+div.content-tab {
+	position:absolute;
+	top: 0px;
+	height: 60px;
+	text-align: center;
+}
+div.content-tab p {
+	padding: 0 !important;
+}
+div.content-tab p a {
+	display: block;
+	padding: 0 10px 0 10px;
+	color: #fff;
+	height: 30px;
+	padding: 15px 0 15px 0;
+	opacity: 0.98;
+}
+div.content-tab p a.on {
+	font-weight: bold;
+	background: url('/web_graphics/backgrounds/modal-tab-on.jpg') 0 bottom repeat-x;
+	opacity: 1;
+}
+div.modal-block{
+	display:block;
+	float: left;
+	background: #fff;
+1	border: 1px solid #42bb9c;
+	padding:20px;
+}
+div.share-block {
+	width:700px;
+	height:450px;
+}
+
+div.detail-block {
+	width:600px;
+	min-height:300px;
+}
+
+
+
+
+

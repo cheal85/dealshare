@@ -1,0 +1,23 @@
+INSERT INTO  `data_users` (
+`id` ,
+`user_name` ,
+`first_name` ,
+`last_name` ,
+`name` ,
+`email` ,
+`password` ,
+`id_image` ,
+`user_type` ,
+`about` ,
+`website` ,
+`twitter` ,
+`last_login` ,
+`active` ,
+`hash` ,
+`meta_shared_deals` ,
+`meta_comments` ,
+`date_added`
+)
+VALUES (
+NULL ,  'LisaKay', NULL , NULL ,  'LisaKay',  'account02@dealshare.ie',  'mOD9XnJTga/MA',  '1',  'user', NULL , NULL , NULL ,  '0000-00-00 00:00:00',  'yes',  '9QHAYEGS',  '0',  '0',  '2014-01-29 08:05:42'
+);

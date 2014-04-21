@@ -1,0 +1,446 @@
+
+/* ==========================================================================
+   CSS Created by Cathal Healy
+   
+   Responsive CSS media queries
+   ========================================================================== */
+
+
+   @media screen and (min-width:1907px) {
+   		.res.span-12 {
+   			width: 1760px;
+   		1	background: #42bb9c;
+   		}
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:none;
+         }
+         .res-des {
+            display:inherit;
+         }
+   }   
+
+   @media screen and (min-width: 1797px) and (max-width: 1906px) {
+   		.res.span-12 {
+   			width: 1760px;
+   		1	background: #b5e4d8;
+   		}
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:none;
+         }
+         .res-des {
+            display:inherit;
+         }
+  }   
+   @media screen and (min-width: 1577px) and (max-width: 1796px) {
+   		.res.span-12 {
+   			width: 1540px;
+   		1	background: #e483c7;
+   		}
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:none;
+         }
+         .res-des {
+            display:inherit;
+         }
+   }
+   @media screen and (min-width: 1357px) and (max-width: 1576px) {
+   		.res.span-12 {
+   			width: 1320px;
+   		1	background: #9add5e;
+   		}
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:none;
+         }
+         .res-des {
+            display:inherit;
+         }
+   }
+  @media screen and (min-width: 1137px) and (max-width: 1356px) {
+   		.res.span-12 {
+   			width: 1100px;
+   		1	background: #d6864b;
+   		}
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:none;
+         }
+         .res-des {
+            display:inherit;
+         }
+   }
+  @media screen and (min-width: 917px) and (max-width: 1136px) {
+         .res.span-12 {
+            width: 880px;
+         1  background: #d6864b;
+         }
+            div.load-more h4 a {
+            font-size: 9em;
+         }
+         div.central-block {
+            width: 910px;
+         }
+         .res-mob {
+            display:none;
+         }
+         .res-tab {
+            display:none;
+         }
+         .res-des {
+            display:inherit;
+         }
+         .res.padding-10 {
+            padding: 5px;
+         }
+         .res.padding-20 {
+            padding: 10px;
+         }
+   }  
+   @media screen and (min-width: 697px) and (max-width: 916px) {
+         .res.span-12 {
+            width: 660px;
+         1  background: #d6864b;
+         }
+         .res.span-11 {
+            width: 100%
+         }
+         .res.span-10 {
+            width: 100%
+         }
+         .res.span-9 {
+            width: 100%
+         }
+         .res.span-8 {
+            width: 100%
+         }
+         .res.span-7 {
+            width: 100%
+         }
+         .res.span-6 {
+            width: 100%
+         }
+         .res.span-5 {
+            width: 100%
+         }
+         .res.span-4 {
+            width: 100%
+         }
+         .res.span-3 {
+            width: 75%
+         }
+         .res.span-2 {
+            width: 50%
+         }
+         .res.span-1 {
+            width: 22%
+         }
+          div.load-more h4 a {
+            font-size: 7em;
+         }
+         div.central-block {
+            width: 690px;
+         }
+         .res.padding-20 {
+            padding: 14px;
+         }
+         .res.padding-10, .padding {
+            padding: 8px;
+         }
+         .res-des {
+            display:none;
+         }
+         .res-mob {
+            display: none;
+         }
+         .res-tab {
+            display:inherit !important;
+         }
+         .res.padding-10 {
+            padding: 5px;
+         }
+         .res.padding-20 {
+            padding: 10px;
+         }
+         div.deal-thumbnail {
+            min-height: 40px !important;
+            max-height: 240px !important;
+            height: auto !important;
+         }
+         div.deal-summary {
+            min-height:40px !important;
+         }
+  }
+   @media screen and (min-width: 477px) and (max-width: 696px) {
+         .res.span-12 {
+            width: 440px;
+         1  background: #d6864b;
+         }
+         .res.span-11 {
+            width: 100%
+         }
+         .res.span-10 {
+            width: 100%
+         }
+         .res.span-9 {
+            width: 100%
+         }
+         .res.span-8 {
+            width: 100%
+         }
+         .res.span-7 {
+            width: 100%
+         }
+         .res.span-6 {
+            width: 100%
+         }
+         .res.span-5 {
+            width: 100%
+         }
+         .res.span-4 {
+            width: 100%
+         }
+         .res.span-3 {
+            width: 100%
+         }
+         .res.span-2 {
+            width: 100%
+         }
+         .res.span-1 {
+            width: 100%
+         }
+         div.load-more h4 a {
+            font-size: 5em;
+         }
+         div.central-block {
+            width: 470px;
+         }
+         div#account-links p {
+            padding: 0 25px 0 25px;
+         }
+         .res.padding-20 {
+            padding: 10px;
+         }
+         .res.padding-10, .padding {
+            padding: 5px;
+         }
+         .res-des {
+            display:none;
+         }
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:inherit !important;
+         }
+         .res.padding-10 {
+            padding: 5px;
+         }
+         .res.padding-20 {
+            padding: 5px;
+         }
+         div.deal-thumbnail {
+            min-height: 40px !important;
+            max-height: 240px !important;
+            height: auto !important;
+         }
+         div.deal-summary {
+            min-height:40px !important;
+         }
+         h1.res {font-size: 1.8em;}
+         h2.res {font-size: 1.5em;}
+         h3.res {font-size: 1.3em;}
+
+         input[name="search"] {
+            width: 100%;
+         }
+         .res-margin-top {
+            margin-top: 20px;
+         }
+ }
+   @media screen and (min-width: 257px) and (max-width: 476px) {
+         .res.span-12 {
+            width: 220px;
+         1  background: #d6864b;
+         }
+         .res.span-11 {
+            width: 100%
+         }
+         .res.span-10 {
+            width: 100%
+         }
+         .res.span-9 {
+            width: 100%
+         }
+         .res.span-8 {
+            width: 100%
+         }
+         .res.span-7 {
+            width: 100%
+         }
+         .res.span-6 {
+            width: 100%
+         }
+         .res.span-5 {
+            width: 100%
+         }
+         .res.span-4 {
+            width: 100%
+         }
+         .res.span-3 {
+            width: 100%
+         }
+         .res.span-2 {
+            width: 100%
+         }
+         .res.span-1 {
+            width: 100%
+         }
+         div.load-more h4 a {
+            font-size: 3em;
+         }
+         div.central-block {
+            width: 250px;
+         }
+         div#account-links p {
+            padding: 0 15px 0 15px;
+         }
+         .res.padding-20 {
+            padding: 5px;
+         }
+         .res.padding-10, .padding {
+            padding: 3px;
+         }
+         .res-des {
+            display:none;
+         }
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:inherit !important;
+         }
+         .res.padding-10 {
+            padding: 5px;
+         }
+         .res.padding-20 {
+            padding: 5px;
+         }
+         div.deal-thumbnail {
+            min-height: 40px !important;
+            max-height: 240px !important;
+            height: auto !important;
+         }
+         div.deal-summary {
+            min-height:40px !important;
+         }
+         h1.res {font-size: 1.6em;}
+         h2.res {font-size: 1.4em;}
+         h3.res {font-size: 1.3em;}
+
+         input[name="search"] {
+            width: 100%;
+         }
+         .res-margin-top {
+            margin-top: 20px;
+         }
+   }
+   @media screen and (min-width: 25px) and (max-width: 256px) {
+         .res.span-12 {
+            width: 220px;
+         1  background: #d6864b;
+         }
+         .res.span-11 {
+            width: 100%
+         }
+         .res.span-10 {
+            width: 100%
+         }
+         .res.span-9 {
+            width: 100%
+         }
+         .res.span-8 {
+            width: 100%
+         }
+         .res.span-7 {
+            width: 100%
+         }
+         .res.span-6 {
+            width: 100%
+         }
+         .res.span-5 {
+            width: 100%
+         }
+         .res.span-4 {
+            width: 100%
+         }
+         .res.span-3 {
+            width: 100%
+         }
+         .res.span-2 {
+            width: 100%
+         }
+         .res.span-1 {
+            width: 100%
+         }
+         div.load-more h4 a {
+            font-size: 3em;
+         }
+         div.central-block {
+            width: 250px;
+         }
+         div#account-links p {
+            padding: 0 15px 0 15px;
+         }
+         .res.padding-20 {
+            padding: 5px;
+         }
+         .res.padding-10, .padding {
+            padding: 3px;
+         }
+         .res-des {
+            display:none;
+         }
+         .res-tab {
+            display:none;
+         }
+         .res-mob {
+            display:inherit !important;
+         }
+         .res.padding-10 {
+            padding: 5px;
+         }
+         .res.padding-20 {
+            padding: 5px;
+         }
+         div.deal-thumbnail {
+            min-height: 40px !important;
+            max-height: 240px !important;
+            height: auto !important;
+         }
+         div.deal-summary {
+            min-height:40px !important;
+         }
+         h1.res {font-size: 1.6em;}
+         h2.res {font-size: 1.4em;}
+         h3.res {font-size: 1.3em;}
+
+         input[name="search"] {
+            width: 100%;
+         }
+         .res-margin-top {
+            margin-top: 20px;
+         }
+   }

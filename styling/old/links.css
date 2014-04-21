@@ -1,0 +1,189 @@
+
+
+/* ==========================================================================
+   CSS Created by Cathal Healy
+   
+   use this file to create styles for site links
+   ========================================================================== */
+
+a {
+	color: #42bb9c;
+	text-decoration: none;
+	font-size: 1.0em;
+}
+a.logo {
+1	display:block;
+}
+div#account-links {
+	position: relative;
+	height: 30px;
+1	padding: 7px 0 6px 0;
+}
+div#account-links p  {
+	position: relative;
+1	display: block;
+	top: 7px;
+	line-height: 17px;
+	padding: 0 35px 0 35px;
+	text-decoration: none;
+	color:#efefef;
+	border-left: #efefef solid 2px;
+1	font-weight: bold;	
+}
+div#account-links p.no-border  {
+	border: none;
+}
+div#site-top a:hover{
+	color: #fff;
+}
+div#site-top a.on{
+	color: #fff;
+}
+
+.button-add {
+	display: block;
+	background: url('/web_graphics/buttons/button-1.png') center center no-repeat !important;
+}
+.button-header {
+	width: 189px !important;
+	height: 37px !important;
+	border: none !important;
+	text-align:left !important;
+	padding:10px 15px;
+}
+.button-signup {
+	display: block;
+	background: url('/web_graphics/buttons/button-2.png') center center no-repeat !important;
+}
+ul.nav {
+	line-height: 200%;
+}
+ul.nav li {
+	display: inline;
+	list-style-type:none;
+	float: right;
+	width: 24%;
+}
+ul.nav li a {
+	display:inline-block;
+	color: #414141;
+	font-size: 1.0em;
+	height: 45px;
+	padding: 5px;
+}
+ul.nav li a.on {
+	color: #000;
+1	font-weight: bold;
+	background: url('/web_graphics/backgrounds/up-tab.png') 50% 100% no-repeat;
+}
+
+a.icon-vote {
+	background: #42bb9c url('/web_graphics/icons/vote-icon.png') center center no-repeat;
+}
+a.icon-modal-vote {
+	display:block;
+	height: 20px;
+	line-height:25px;
+	background: url('/web_graphics/icons/vote-icon-teal.png') right center no-repeat;
+	opacity: 0.8;
+	padding-bottom: 1px;
+}
+a.icon-modal-vote:hover {
+	opacity:1;
+	border-bottom: #42bb9c 1px dotted;
+	padding-bottom: 0px;
+}
+a.icon-vote-small {
+	display: block;
+	float:left;
+	width: 41px;
+	height: 14px;
+	color: #fff;
+	text-align: right;
+	background: #42bb9c;
+	padding: 0 8px 0 5px;
+	border-right: #fff 2px solid;
+}
+
+a.icon-share {
+	background: #42bb9c url('/web_graphics/icons/share-icon.png') center center no-repeat;
+}
+a.icon-modal-share {
+	display:block;
+	height: 20px;
+	line-height:25px;
+	background: url('/web_graphics/icons/share-icon-teal.png') right center no-repeat;
+	opacity: 0.8;
+	padding-bottom: 1px;
+}
+a.icon-modal-share:hover {
+	opacity:1;
+	border-bottom: #42bb9c 1px dotted;
+	padding-bottom: 0px;
+}
+a.icon-share-small {
+	display: block;
+	float:left;
+	width: 41px;
+	height: 14px;
+	color: #fff;
+	text-align: right;
+	background: #42bb9c;
+	padding: 0 8px 0 5px;
+	border-right: #fff 2px solid;
+}
+a.icon-views-small {
+	display: block;
+	float:left;
+	width: 41px;
+	height: 14px;
+	color: #fff;
+	text-align: right;
+	background: #42bb9c;
+	padding: 0 10px 0 5px;
+}
+
+a.less {
+	display:block;
+	position:absolute;
+	height: 320px;
+	width: 40px;
+	left: 0px;
+	background: url('/web_graphics/backgrounds/pagination-fade-left.png') 0 0 repeat-y;
+}
+a.more {
+	display:block;
+	position:absolute;
+	height: 320px;
+	width: 40px;
+	left: 98%;
+	background: url('/web_graphics/backgrounds/pagination-fade-right.png') 0 0 repeat-y;
+}
+a.external-link {
+	display:block;
+	width: 16px;
+	height: 24px;
+	background: url('/web_graphics/icons/external-link-icon-teal.png') 0 bottom no-repeat;
+}
+a.euro-button {
+	display: block;
+	height: 35px;
+	width:35px;
+	background: url('/web_graphics/icons/type-euro-icon.png') 0 bottom no-repeat;
+}
+a.euro-button:hover {
+	background: url('/web_graphics/icons/type-euro-icon-hover.png') 0 bottom no-repeat;
+}
+a.percent-button {
+	display: block;
+	height: 35px;
+	width:35px;
+	background: url('/web_graphics/icons/type-percent-icon.png') 0 bottom no-repeat;
+}
+a.percent-button:hover {
+	background: url('/web_graphics/icons/type-percent-icon-hover.png') 0 bottom no-repeat;
+}
+
+div.foot-icons a:hover{
+	margin-top: -5px;
+}

@@ -1,0 +1,316 @@
+
+
+/* ==========================================================================
+   CSS Created by Cathal Healy
+   
+   use this file to create styles for holder elements
+   ========================================================================== */
+
+/* ===========================
+   ELEMENT SIZES 
+   ===========================*/
+
+.span-12 {
+	width: 100%;
+}
+.span-11 {
+	width: 90%;
+}
+.span-6 {
+	width: 48%;
+}
+.span-5 {
+	width: 41%;
+}
+.span-7 {
+	width: 57%;
+}
+.span-3 {
+	width: 24%;
+}
+.span-9 {
+	width: 74%;
+}
+.span-4 {
+	width: 33.3%;
+}
+.span-8{
+	width: 64%;
+}
+.span-10{
+	width: 83%;
+}
+.span-2{
+	width: 15%;
+}
+.span-1{
+	width: 9%;
+}
+.width-auto {
+	width: auto;
+}
+.h-100 {
+	min-height:100px;
+}
+.h-200 {
+	min-height:200px;
+}
+.h-300 {
+	min-height:300px;
+}
+.h-400 {
+	min-height:400px;
+}
+.header-left {
+	width: 40%;
+}
+.header-centre {
+	width: 19%;
+}
+.header-right {
+	width: 40%;
+}
+div.sep {
+	display: block;
+	height: 10px;
+}
+div.sep-20 {
+	display: block;
+	height: 20px;
+}
+div.sep-40 {
+	display: block;
+	height: 40px;
+}
+.block {
+	display: block;
+}
+/* ===========================
+   ELEMENT BORDERS 
+   ===========================*/
+.border {
+	border:1px solid #efefef;
+}
+img.border {
+	border: 5px solid #51ccae;
+}
+.border-top {
+	border-top:1px solid #e1e1e1;
+}
+.border-top-color {
+	border-top: 3px solid #51ccae;
+}
+.border-bottom {
+	border-bottom:1px solid #efefef;
+}
+.border-right {
+	border-right:1px solid #96e8d4;
+}
+.dashed {
+	border:1px dashed #e1e1e1;
+}
+.shadow {
+	-webkit-box-shadow: 1px 1px 1px 0px #dedede;
+	-moz-box-shadow:    1px 1px 1px 0px #dedede;
+	box-shadow:         1px 1px 1px 0px #dedede;
+}
+/* ===========================
+   STYLING
+   ===========================*/
+.rounded {
+	border-radius:4px;
+}
+.padding {
+	padding: 5px;
+}
+.padding-10 {
+	padding:10px;
+}
+.padding-20 {
+	padding:20px;
+}
+.padding-5 {
+	padding:5px;
+}
+.top-bottom {
+	padding:10px 0 10px 0;
+}
+.right-left {
+	padding:0 10px 0 10px;
+}
+.right-left-5 {
+	padding:0 5px 0 5px;
+}
+
+/* ===========================
+   STYLING
+   ===========================*/
+/* ===========================
+   POSITION
+   ===========================*/
+.top {
+	margin-top:5px;
+}
+.top-10 {
+	margin-top:10px;
+}
+.top-20 {
+	margin-top:20px;
+}
+.bottom {
+	margin-bottom:5px;
+}
+.clear {
+	clear:both;
+}
+.absolute {
+	position:absolute;
+}
+.hidden {
+	display:none !important;
+}
+/* ===========================
+   LOADING
+   ===========================*/
+.js-loading {
+	padding: 20px 10px;
+	text-align: center;
+}
+.js-loading p {
+	color: #fff;
+	font-size: 0.9em;
+	padding: 5px 10px;
+	background: #42bb9c;
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+/* ===========================
+   COLORS
+   ===========================*/
+.color-1 {
+	color: #000;
+}
+.color-2 {
+	color: #42bb9c;
+1	color: #51ccae;
+}
+.color-3 {
+	color: #49cbb1;
+}
+.color-4 {
+	color: #efefef;
+}
+.color-5 {
+	color: #606060;
+}
+.color-6 {
+	color: #fff;
+}
+.color-7 {
+	color: #575757;
+}
+.color-8 {
+	color: #A650AB;
+}
+/* ===========================
+   BACKGROUND COLORS
+   ===========================*/
+.back-color-1 {
+	background:#000;
+}
+.back-color-2 {
+	background:#42bb9c;
+}
+.back-color-3 {
+	background:#49cbb1;
+}
+.back-color-4 {
+	background:#efefef;
+}
+.back-color-5 {
+	background:#606060;
+}
+.back-color-6 {
+	background:#fff;
+}
+.back-color-8 {
+	background: #A650AB;
+}
+/* ===========================
+   TEXT STYLING
+   ===========================*/
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+.text-centre {
+	text-align: center;
+}
+.text-small {
+	font-size: 0.9em;
+	line-height: 60%;
+}
+.bold {
+	font-weight: 600;
+}
+.italic {
+	text-decoration: italic;
+}
+/* ===========================
+   DIV POSITION
+   ===========================*/
+.centre {
+1	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+/* ===========================
+   BUTTONS
+   ===========================*/
+.res-margin-top {
+   	margin-top: 20px;
+}
+
+a.button {
+1	width: 185px;
+	height: 35px;
+	background: #42bb9c;
+	border-radius: 3px;
+	color:  #fff;
+	text-align:center;
+	font-size: 1.6em;
+	line-height: 38px;
+	opacity: 0.9;
+	border: 1px solid #2abd99;
+}
+a.button.icon-external{
+	background: #42bb9c url('/web_graphics/icons/external-link-icon-white.png') 97% center no-repeat;
+}
+
+a.button:hover {
+	opacity: 1;
+}
+
+img.loading {
+	width:100%;
+	height:100%;
+}
+img.img-loading {
+	width:100%;
+	height:100%;
+}
+img.img-fit {
+	max-width: 100%;
+}
