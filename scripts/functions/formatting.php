@@ -13,7 +13,9 @@ function format($arr)
 		if($key == 'date_added') {
 			$ret['nice_date'] = 	FriendlyDate($value);
 		}
-		$ret[$key] = htmlentities(stripslashes(mb_convert_encoding($value, "ISO-8859-1")));
+		$value = mb_convert_encoding($value, "ISO-8859-1");
+		#$value = mb_convert_encoding($value, "UTF-8");
+		$ret[$key] = htmlentities(stripslashes($value));
 	}
 	return $ret;
 }
@@ -39,18 +41,12 @@ function short($string, $length = 30)
 //  Clean out un wanted characters
 function clean($str) {
 	//  allowed characters
-	$allowed = 	array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-					'a','b','c','d','e','f','g','h','i','j','k', 'l','m','n', 'o','p','q','r','s','t','u','v','w','x','y','z',
-					'0','1','2','3','4','5','6','7','8','9', ' ');
-					//
-	$strlen = strlen( $str );
-	for( $i = 0; $i <= $strlen; $i++ ) {
-	    $char = substr( $str, $i, 1 );		
-		//
-		if(!in_array($char, $allowed)) $str[$i] = '';	
-	}
+	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+	$string = str_replace('.', '-', $string); // Replaces all spaces with hyphens.
+	$string = str_replace('&', '-', $string); // Replaces all spaces with hyphens.
+	$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	//
-	return $str;
+	return $string;
 }
 //  ---------------------------------------------
 //  Sanitize user inputs
@@ -76,12 +72,13 @@ function sanitize_v2($array) {
 //  ---------------------------------------------
 //  Old sanitizer Sanitize user inputs
 function sanitize_url($string) {
-    $clean = trim(clean($string));
-    $clean = preg_replace('/\s+/', "-", $clean);
-	$clean = strtolower($clean);
-	//$clean = urlencode($clean);
-	$GLOBALS['myDbManager'] -> debug('url_safe: ' . $clean);
-    return $clean;
+	$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+	$string = str_replace('.', '-', $string); // Replaces all spaces with hyphens.
+	$string = str_replace('&', '-', $string); // Replaces all spaces with hyphens.
+	$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+	$string = str_replace('--', '-', $string); // Replaces all spaces with hyphens.
+	//
+	return $string;
 }
 //
 function sanitize_post($arr) {

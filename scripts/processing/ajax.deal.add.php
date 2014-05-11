@@ -79,7 +79,13 @@ if($authenticated) {
 	//  Set Affiliate Link
 	$GLOBALS['myDbManager'] -> debug('set affiliate');
 	if($link = $myMerchantManager -> SetAffiliate($post['link'], $merchant['id_affiliate'], $merchant['merchant_key'])) {
-		$post['link'] = $link;
+		//  test affiliate link exists
+		$file_headers = @get_headers($link);
+		if(strpos($file_headers[0], '404')) {
+		}
+		else {
+			$post['link'] = $link;
+		}
 	}
 	//  -----------------------------------------
 	//  Check is this a new deal or existing

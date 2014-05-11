@@ -8,7 +8,12 @@ class DbManager
     {
 		$this -> dbConnect = new mysqli($dbHost, $dbUser, $dbPassword, $dbName)
 				or die('Could not connect: ' . mysqli_error());
-				
+		//  set character set
+		/*
+		if(!$this -> dbConnect -> set_charset("utf8")) {
+			print '<script>alert("could not set character set");</script>';
+		}
+		*/
     }
 
 	public function SELECT($q)
