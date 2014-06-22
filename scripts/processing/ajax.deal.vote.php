@@ -56,7 +56,10 @@ if($authenticated) {
 				
 				$db_manager -> UpdateEntry($post['id'], 'voters', $voterString);
 				$json_array['success'] = true;	
-				$json_array['message'] = 'Thank you for voting';
+				$json_array['message'] = 'Your gratitude is appreciated';
+				//  assign thanks to users
+				$myUserManager -> Increment($USER['id'], 'meta_thanks_given');
+				$myUserManager -> Increment($deal['id_user'], 'meta_thanks_received');
 			}
 		}
 		else {

@@ -40,7 +40,7 @@ $page = 'activation';
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
-    <script src="/java/jquery-1.6.1.min.js"></script>
+    <script src="/java/jquery-1.8.0.min.js"></script>
     <script src="/java/vendor/modernizr-2.6.2.min.js"></script>
     <script src="/java/loader.js"></script>
 </head>
@@ -63,7 +63,7 @@ $page = 'activation';
 
         <div class="content-container clear">
             
-            <div class="content-wrapper ">
+            <div class="content-wrapper left span-12">
         		<div class="central-block" >
                 	<?php 
 					include(DIR_TEMPLATES . '/temp_account_activation.php'); 

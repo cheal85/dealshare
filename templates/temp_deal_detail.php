@@ -24,7 +24,7 @@
 						echo '<div class="padding-20 res" >';
 							if($data['merchant_title'] != '') $title = 'Visit ' . $data['merchant_title'] . ' to view this product';
 								else $title = 'Get this Deal!';
-							echo '<a class="button color-3 left centre span-12 icon-external" href="' . $data['link'] . '"  target="_blank" title="' . $title . '" >Get this Deal!</a>';
+							echo '<a class="button color-3 left centre span-12 icon-external js-external" href="' . $data['link'] . '"  target="_blank" title="' . $title . '" rel="' . $data['id'] . '" >Get this Deal!</a>';
 						echo '</div>';
 					echo '</div>';
 					//  ------------------------------------------------------------------
@@ -106,7 +106,7 @@
 										}
 									}
 								  //  --------------------------------------------------------------
-								  if(!$voted)  echo '<a class="color-2 span-6 right js-modal-vote icon-modal-vote" href="javascript:;" title="Vote up this Deal" rel="' . $data['id'] . '">Vote</a>';
+								  if(!$voted)  echo '<a class="color-2 span-6 right js-modal-vote icon-modal-vote" href="javascript:;" title="Thank ' . $user['name'] . ' for this Deal" rel="' . $data['id'] . '">Thank ' . $user['name'] . '</a>';
 								}
 								// 
 							echo '</div>';
@@ -150,6 +150,7 @@
 				// --------------------------------------------
 				//  Record View
 				$myDealManager -> Increment($data['id'], 'meta_views');
+				if(LOGGED_IN) $myUserManager -> Increment($USER['id'], 'meta_views');
 				//  --------------------------------------------------
 			}
 			else {

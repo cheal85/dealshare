@@ -213,6 +213,9 @@ img.border {
 .color-8 {
 	color: #A650AB;
 }
+.color-9 {
+	color: #dedede;
+}
 /* ===========================
    BACKGROUND COLORS
    ===========================*/
@@ -237,6 +240,10 @@ img.border {
 .back-color-8 {
 	background: #A650AB;
 }
+.back-color-9 {
+	background: #dedede;
+}
+
 /* ===========================
    TEXT STYLING
    ===========================*/
@@ -252,6 +259,10 @@ img.border {
 .text-small {
 	font-size: 0.9em;
 	line-height: 60%;
+}
+.text-large {
+	font-size: 3em;
+	line-height: 120%;
 }
 .bold {
 	font-weight: 600;
@@ -276,11 +287,14 @@ img.border {
 	float: right;
 }
 
+.float-bottom {
+	bottom: 0;
+}
 /* ===========================
    BUTTONS
    ===========================*/
 .res-margin-top {
-   	margin-top: 20px;
+   	margin-top: 10px;
 }
 
 a.button {
@@ -313,4 +327,27 @@ img.img-loading {
 }
 img.img-fit {
 	max-width: 100%;
+}
+/*  ===============================
+	TOOLTIP STYLING
+	============================ */
+p.tooltip-content-holder {
+	display:none;
+}
+div.tooltip {
+	position: absolute;
+	background: #EE3C5D;
+	z-index: 950;
+	border-radius: 3px;
+}
+p.tooltip-content {
+	color: #fff;
+	padding:10px;
+	font-size: 0.9em;
+}
+img.tooltip-arrow {
+	position: absolute;
+	width: 16px;
+	left: 10px;
+	top: -8px;
 }

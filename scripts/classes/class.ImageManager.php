@@ -89,7 +89,26 @@ class ImageManager extends DataManager
 				$GLOBALS['myDbManager'] -> debug('Error processing image: ' . $this -> id);
 			}
 			// save thumbnail into a file
-			imagejpeg( $tmp_img, $dest_img );
+			
+			switch($tmp[0]['ext']) {
+				case 'jpg':
+				case 'JPG':
+					imagejpeg( $tmp_img, $dest_img );
+					break;
+			
+				case 'png':
+				case 'PNG':
+					imagepng( $tmp_img, $dest_img );
+					break;
+			
+				case 'gif':
+				case 'GIF':
+					imagegif( $tmp_img, $dest_img );
+					break;
+				
+				default:
+					break;
+			}
 		}
 						
 	}

@@ -45,19 +45,19 @@ if($authenticated) {
 			//  -----------------------------------------
 			$post['name'] = $post['user_name'];
 			//  -----------------------------------------
-			if($newId = $db_manager -> CreateEntry())
+			if($post['id'] = $db_manager -> CreateEntry())
 			{
 				$post['active'] = 'no'; //  FOR TESTING!
 				//  ----------------------------------------
 				//  Build Entry
 				if($db_manager -> BuildEntry($newId, $post, $ignoreArray)) {
-					$post['id'] = $newId;
 					//  ----------------------------------------
 					//  EMAIL FUNCTIONALITY
 					//  Create Activation Link
 					$post['activation_link'] = SITE_ROOT . '/account/activation/' . $post['hash'] . '/' . $post['id'] . '/';
 					//
 					if($myMailManager -> SendActivationEmail($post)) {
+						$myUserManager -> MemberCookie(); //  remember that this user is a member
 						$json_array['success'] = true;
 						$json_array['message'] = 'We have emailed you instructions for activating your account';	
 					}
@@ -73,7 +73,7 @@ if($authenticated) {
 			}
 			else
 			{
-				$myDbManager -> debug('id: ' . var_dump($newId));
+				$myDbManager -> debug('id: ' . var_dump($post['id']));
 				$json_array['message'] = 'Failed to create your account';
 			}
 		}

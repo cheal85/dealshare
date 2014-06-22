@@ -1,5 +1,5 @@
-<div class="browse-header clear res span-12 centre ">
-	<div class="clear span-12 left shadow back-color-2" >
+<div class="browse-header clear relative span-12 left ">
+	<div class="clear span-12 res centre shadow back-color-2" >
 		<div id="search-container" class="right res span-2 res-des">
 	        <form id="search-form" method="post" class="centre padding-5" action="/scripts/processing/process.search.php" >
 	            <input class="clear span-12 right" type="text" placeholder="search for deals" name="search" value="<?php echo $search; ?>" />

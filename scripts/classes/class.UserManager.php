@@ -117,6 +117,43 @@ class UserManager extends DataManager
 		}
 	}
 	//  ----------------------------------------------------------
+	//  REMEMBER ME FUNCTIONALITY
+	//  ----------------------------------------------------------
+	public function RememberMe($id, $remove = false)
+	{
+		//  remove existing
+		if($_COOKIE['dealshare_user_id']) {
+			$past = (time() - (60*60*24));  //  yesterday
+			setcookie('dealshare_user_id', '', $past, '/');
+			setcookie('dealshare_user_code', '', $past, '/');
+			$this -> Update($id, 'remember_me', '');
+		}
+		if(!$remove) {
+			//  create new cookie
+			$code = generate_hash(32, 'mixed');
+			//
+			$three_months = (time() + (60*60*24*91));
+			setcookie('dealshare_user_id', $id, $three_months, '/');
+			setcookie('dealshare_user_code', $code, $three_months, '/');
+			//  add code to database
+			$this -> Update($id, 'remember_me', $code);
+		}
+	}
+	//  ----------------------------------------------------------
+	//  REMEMBER THAT THIS PERSON IS A USER
+	//  ----------------------------------------------------------
+	public function MemberCookie()
+	{
+		//  remove existing
+		if($_COOKIE['dealshare_member']) {
+			$past = (time() - (60*60*24)); // yesterday
+			setcookie('dealshare_member', '', $past, '/');
+		}
+		//  create new cookie
+		$six_months = (time() + (60*60*24*182));
+		setcookie('dealshare_member', 'confirmed', $six_months, '/');
+	}
+	//  ----------------------------------------------------------
 	//  FUNCTIONALITY TO HANDLE SIGN UP AND LOGIN
 	//  ----------------------------------------------------------
 

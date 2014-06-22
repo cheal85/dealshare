@@ -31,15 +31,19 @@ if($authenticated) {
 	//  Set class instance
 	$db_manager = $myUserManager;
 	//  Check that Account does exist
-	if($db_manager -> AccountExists($_POST['email']))
+	if($db_manager -> AccountExists($post['email']))
 	{
 		//  Account does exist
 		//  Test password
-		if($user = $db_manager -> Login($_POST['email'], $_POST['password']))
+		if($user = $db_manager -> Login($post['email'], $post['password']))
 		{
+			$myUserManager -> MemberCookie(); //  remember that this user is a member
 			$json_array['message'] = 'Login successful';
 			$json_array['success'] = true;	
 			if($user['user_type'] == 'admin') $json_array['redirect'] = '/admin-ds/';
+			//
+			if($post['remember_me']) $myUserManager -> RememberMe($post['id']); //  login automatically in future
+				else $myUserManager -> RememberMe($post['id'], true); //  remove login cookie
 		}
 		else
 		{

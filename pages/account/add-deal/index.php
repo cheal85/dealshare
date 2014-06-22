@@ -42,7 +42,7 @@ if(!LOGGED_IN) header('location: /');
 
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
     <script type="text/javascript">var JS_USER	= '<?php echo $USER['id']; ?>';</script>
-    <script src="/java/jquery-1.6.1.min.js"></script>
+    <script src="/java/jquery-1.8.0.min.js"></script>
     <script src="/java/vendor/modernizr-2.6.2.min.js"></script>
     <script src="/java/loader.js"></script>
     <script type='text/javascript' src='/java/jquery/jquery.add-deal.upload.js'></script>
@@ -67,7 +67,7 @@ if(!LOGGED_IN) header('location: /');
 
         <div class="content-container clear">
             <?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
-            <div class="content-wrapper ">
+            <div class="content-wrapper left span-12">
         		<div class="central-block" >
                 	<?php 
 					include(DIR_TEMPLATES . '/temp_account_sidebar.php'); 

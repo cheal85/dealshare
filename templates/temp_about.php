@@ -1,13 +1,8 @@
 
 <div class="span-12 right ">
-	<div class="padding-10 ">
-		<div class="">
+		<div class="padding-20">
 
-			<div id="account-main-top"  class="back-color-2 span-12 shadow" >
-			   	<div class="padding-10">
-					<h2 class="color-6">About Dealshare</h2>
-					<p class="color-6 medium">Find out who we are and why we are here!</p>
-			    </div>
+			<h2 class="color-5 text-centre">About</h2>
 			</div>
 			
 			<div class="sep-20">&nbsp;</div>

@@ -44,10 +44,10 @@ $page = 'homepage';
     <?php LoadStyles(); ?>
   	<!-- WGCCxxx -->
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
-    <script type="text/javascript">var JS_USER	= '<?php echo $USER['id']; ?>';</script>
-    <script src="/java/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript">var JS_THIS_PAGE	= '<?php echo $page; ?>';</script>
+    <script type="text/javascript">var JS_AJAX	= true;</script>
+    <script src="/java/jquery-1.8.0.min.js"></script>
     <script src="/java/vendor/modernizr-2.6.2.min.js"></script>
     <script src="/java/loader.js"></script>
 </head>
@@ -65,20 +65,20 @@ $page = 'homepage';
         <div class="header-wrapper back-color-4"">
             <?php 
             include(DIR_TEMPLATES . '/temp_header.php'); 
-            include(DIR_TEMPLATES . '/temp_header_browse.php'); 
 			?>
         </div>
 
         <div class="content-wrapper clear">
             <?php 
-			include(DIR_TEMPLATES . '/temp_mobile_sidebar.php');
-			echo '<div class="text-centre left span-12">';
-			//  ----------------------------------------------------
-			//  Load in the first page of deals, but hide it.
-			//  this is purely for SEO
-			#include(DIR_TEMPLATES . '/temp_seo_deals.php');
-			//  ----------------------------------------------------
-			include(DIR_TEMPLATES . '/temp_content_deals.php');
+			echo '<div id="homepage">';
+	            include(DIR_TEMPLATES . '/temp_header_browse.php'); 
+				include(DIR_TEMPLATES . '/temp_mobile_sidebar.php');
+				//  ----------------------------------------------------
+				//  Load in the first page of deals, but hide it.
+				//  this is purely for SEO
+				#include(DIR_TEMPLATES . '/temp_seo_deals.php');
+				//  ----------------------------------------------------
+				include(DIR_TEMPLATES . '/temp_content_deals.php');
 			echo '</div>';
 			?>
         </div>

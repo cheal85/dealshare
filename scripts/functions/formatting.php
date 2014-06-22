@@ -2,6 +2,65 @@
 
 
 //  -----------------------------------------------
+//  REPUTATION FUNCTIONALITY
+//  -----------------------------------------------
+function reputation($arr)
+{
+	$rep = 0;
+	//  add meta data to reputation
+	$rep += (int)($arr['meta_shared_deals'] * 10);
+	//
+	$rep += (int)($arr['meta_thanks_given']);
+	//
+	$rep += (int)($arr['meta_thanks_received'] * 6);
+	//
+	$rep += (int)($arr['meta_shares_external'] * 8);
+	//
+	$rep += ((int)$arr['meta_comments'] * 3);
+	//
+	//  decide reputational string
+	$rep_string = '';
+	//
+	if($rep >= 100) {
+		if($rep >= 300) {
+			if($rep >= 800) {
+				if($rep >= 1500) {
+					if($rep >= 2500) {
+						if($rep >= 4000) {
+							if($rep >= 6000) {
+								$rep_string = 'Super Scrimper';
+							}
+							else {
+								$rep_string = 'Scrimper';
+							}
+						}
+						else {
+							$rep_string = 'Fastidious Shopper';
+						}
+					}
+					else {
+						$rep_string = 'Shrewd Shopper';
+					}
+				}
+				else {
+					$rep_string = 'thrifty';
+				}
+			}
+			else {
+				$rep_string = 'Frugal';
+			}
+		}
+		else {
+			$rep_string = 'Careful Saver';
+		}
+	}
+	else {
+		$rep_string = 'Saver';
+	}
+	//
+	return $rep_string;
+}
+//  -----------------------------------------------
 //  Format date for display
 //  -----------------------------------------------
 function format($arr)
@@ -77,6 +136,7 @@ function sanitize_url($string) {
 	$string = str_replace('&', '-', $string); // Replaces all spaces with hyphens.
 	$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	$string = str_replace('--', '-', $string); // Replaces all spaces with hyphens.
+	$string = strtolower($string); // change to lower case.
 	//
 	return $string;
 }
@@ -109,7 +169,7 @@ function FormatDate($datetime)
 		$retArray['time'] = '- ';
 	}
 	else {
-		$retArray['date'] = date('j/m/Y', $timestamp);
+		$retArray['date'] = date('d.m.Y', $timestamp);
 		$retArray['time'] = date('H:i ', $timestamp);
 	}
 	return $retArray;

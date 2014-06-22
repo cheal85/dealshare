@@ -61,11 +61,6 @@ $(document).ready(function(){
 			},
 			"json"
 			);
-			//  Record this view
-			$.post('/scripts/processing/ajax.deal.record-view.php', {'id':dataArray[1],
-																'submit': true
-															},  function(data)
-  			{},"json");
 			//  -------------------------------------
 		},
 		"json"

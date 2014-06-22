@@ -58,7 +58,7 @@ $id = $myImageManager -> CreateEntry();
 $size = getimagesize(DIR_ROOT . $uploadPathDb . 'full/' . $data['filename']);
 //  --------------------------------------------------
 //  GET ORIENTATION
-if($size[1] > $size[0]) {
+if($size[1] >= $size[0]) {
 	$data['orientation'] = 'portrait';
 }
 else {

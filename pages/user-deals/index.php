@@ -50,7 +50,7 @@ $page = 'user-deals';
 
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
     <script type="text/javascript">var JS_USER	= '<?php echo $USER['id']; ?>';</script>
-    <script src="/java/jquery-1.6.1.min.js"></script>
+    <script src="/java/jquery-1.8.0.min.js"></script>
     <script src="/java/vendor/modernizr-2.6.2.min.js"></script>
     <script src="/java/loader.js"></script>
 </head>
@@ -73,11 +73,10 @@ $page = 'user-deals';
 
         <div class="content-container clear">
             
-            <div class="content-wrapper ">
+            <div class="content-wrapper span-12 left">
             	<?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
         		<div class="central-block" >
                 	<?php 
-					include(DIR_TEMPLATES . '/temp_user_sidebar.php'); 
 					include(DIR_TEMPLATES . '/temp_user_deals.php'); 
 					?>
                	</div>

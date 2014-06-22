@@ -536,7 +536,7 @@ qq.FileUploader = function(o){
                 
         template: '<div class="qq-uploader full">' + 
                 '<div class="qq-upload-drop-area"><span>{dragText}</span></div>' +
-                '<div class="qq-upload-button"><input id="upload-button" class="span-12 left clear" type="submit" value="Upload Image" /></div>' +
+                '<div class="qq-upload-button"><input id="upload-button" class="span-12 left clear" type="submit" value="Upload" /></div>' +
                 '<ul class="qq-upload-list hidden"></ul>' + 
              '</div>',
 

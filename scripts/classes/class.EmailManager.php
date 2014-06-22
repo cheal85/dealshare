@@ -30,12 +30,13 @@ class MailManager extends PHPMailer
 		echo 'In Build Content<br />';
 		//  ---------------------------------
 		$body = '';
-		include(DIR_PHP . '/email_templates/' . $template);
+		include(DIR_TEMPLATES . '/email/' . $template);
 		echo 'after template <br />';
 		$this->IsHTML(true);
 		echo 'after html <br />';
 		$this->MsgHTML($body);
 		echo 'after body <br />';
+		return $body;
 	}
 	protected function Config() {
 		
@@ -58,12 +59,42 @@ class MailManager extends PHPMailer
         $this -> From = EMAIL_ADDRESS;
         $this -> FromName = EMAIL_NAME;
         $this -> Sender = EMAIL_ADDRESS;
-		$this -> BuildContent('temp_account_signup.php', $arr);
-		if(!$this->SendEmail()) {
-		    $success = false;
-		}
+		$email_html = $this -> BuildContent('temp_account_signup.php', $arr);
+		if(ONLINE) {
+	  		if(!$this->SendEmail()) {
+	  		    $success = false;
+	  		}
+	  		else {
+	  		    $success = true;
+	  		}
+  		}
 		else {
-		    $success = true;
+	  		echo $email_html;
+		}
+		$this->ClearAddresses();
+		$this->ClearAttachments();
+		
+		return $success;
+	}
+	//  -------------------------------------------
+	public function TestEmail($arr, $template) {
+		
+		$this -> AddAddress($arr['email'], $arr['user_name']);
+		$this -> SetSubject('Thank you for registering with Dealshare.ie');
+        $this -> From = EMAIL_ADDRESS;
+        $this -> FromName = EMAIL_NAME;
+        $this -> Sender = EMAIL_ADDRESS;
+		$email_html = $this -> BuildContent($template, $arr);
+		if(ONLINE) {
+	  		if(!$this->SendEmail()) {
+	  		    $success = false;
+	  		}
+	  		else {
+	  		    $success = true;
+	  		}
+  		}
+		else {
+	  		echo $email_html;
 		}
 		$this->ClearAddresses();
 		$this->ClearAttachments();

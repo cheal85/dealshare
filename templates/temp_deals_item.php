@@ -63,10 +63,10 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	//  --------------------------------------------------
 	echo  '<div class="item-hover full absolute res-des" style="display:none;">';
 	if(($voted === false) && LOGGED_IN) {
-		echo  '<a href="javascript:;" class="js-vote icon-hover icon-vote " title="Cast your vote!" rel="' . $data['id'] . '"><span class="hidden">vote</span></a>';
+		echo  '<a href="javascript:;" class="js-vote icon-hover icon-vote " title="Thank ' . $user['name'] . ' for this Deal" rel="' . $data['id'] . '"><img src="/web_graphics/icons/vote-icon.png" style="width:100%; height:100%;" />/a>';
 	}
 	else {
-		echo  '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $data['dealshare_link'] . '" target="_blank" class="js-share icon-hover icon-share " title="Share this Deal" rel="' . $data['id'] . '"><span class="hidden">share</span></a>';
+		echo  '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $data['dealshare_link'] . '" target="_blank" class="js-share icon-hover icon-share " title="Share this Deal" rel="' . $data['id'] . '"><img src="/web_graphics/icons/share-icon.png" style="width:100%; height:100%;" /></a>';
 	}
 	echo  '</div>';	
 	//  --------------------------------------------------
@@ -91,26 +91,27 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	  					echo '<h1 class="clear left res-mob res-tab" ><a href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/"';
 						echo ' title="' . $data['description'] . '" >' . $title . '</a></h1>';
 						//
+						echo '<a class="external-link js-external" href="' . $data['link'] . '"  target="_blank" title="Get this Deal!" rel="' . $data['id'] . '" >&nbsp</a>';
+						//
 	  				echo '</div>';
 	  				//  --------------------------------------------------
 	  				//  DEAL DESCRIPTION
 		  			echo '<div class="clear left border-top span-12" >';
-						echo '<div class="left clear span-2 "><a class="external-link" href="' . $data['link'] . '"  target="_blank" title="Get this Deal!" >&nbsp</a></div>';
-		  				echo '<div class="item-author right  span-10" >';
-							echo '<div class="padding-5 right" >';
-			  					echo '<div class=" clear right user-image">';
+		  				echo '<div class="item-author left  span-12" >';
+							echo '<div class="padding-5 left" >';
+			  					echo '<div class=" clear left user-image">';
 									#if($user['user_type']  == 'user') echo '<a href="/user-deals/' . $user['hash'] . '/' . $user['id'] . '/" title="view ' . $user['name'] . '\'s page" >';
-			  						echo'<img class="content ' . $user['image']['orientation'] . '" src="' . $user['image']['path'] . 'tiny/' . $user['image']['filename'] . '" >';
+			  						echo'<img class="content landscape" src="' . $user['image']['path'] . 'tiny/' . $user['image']['filename'] . '" >';
 									#if($user['user_type']  == 'user') echo '</div>';
 			  					echo '</div>';
 							echo '</div>';	
 		  					//  --------------------------------------------------
-							echo '<div class="padding-5 right" >';
+							echo '<div class="padding-5 left" >';
 			  					if($user['user_type']  == 'user') {
 			  						echo '<p class="small" >by <a href="/user-deals/' . $user['hash'] . '/' . $user['id'] . '/">' . short($user['name'], 19) . '</a><br />';
 			  					}
 			  					else {
-			  						echo '<p class="small" >shared by ' . ucfirst($user['user_type']) . '<br />';
+			  						echo '<p class="small" >by ' . ucfirst($user['user_type']) . '<br />';
 			  					}
 			  					echo '<span class="tiny" >' . $data['nice_date'] . '</span></p>';
 			  				echo '</div>';
@@ -122,7 +123,7 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 			  //  -----------------------------------
 			  //  Votes
 			  echo '<div class="item-stat" >';
-			  echo '<a href="javascript:;" class="js-vote icon-vote-small" title="Vote up this Deal"  rel="' . $data['id'] . '">';
+			  echo '<a href="javascript:;" class="js-vote icon-vote-small" title="Thank ' . $user['name'] . ' for this Deal"  rel="' . $data['id'] . '">';
 			  echo '<img class="left" src="/web_graphics/icons/vote-icon-small.png" />';
 			  echo '<span>' . $data['votes'] . '</span></a>';
 			  echo '</div>';	

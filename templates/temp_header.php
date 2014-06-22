@@ -5,8 +5,8 @@
 		<div class=" centre">
 		    <div id="search-container" class="left res span-3">
 		    	<form id="search-form" method="post" class="centre" action="/scripts/processing/process.search.php" >
-					<input class="clear span-12 centre" type="text" placeholder="Search for Deals" name="search" value="<?php echo $search; ?>" />
-					<input id="search" type="hidden" value=" <?php echo $search; ?> " />
+					<input class="clear span-12 centre" type="text" placeholder="Search for Deals" name="search" value="<?php #echo $search; ?>" />
+					<input id="search" type="hidden" value=" <?php #echo $search; ?> " />
 		    	</form>
 		    </div>
 		    
@@ -34,6 +34,14 @@
 	
 </div>
 -->
+<?php
+//  ----------------------------------------------
+//  display cookie bar
+if(!$ALLOW_COOKIES) { //  if message has not already been dismissed
+	include(DIR_TEMPLATES . '/temp_cookie_bar.php');
+}
+
+?>
 
 <div id="header" class="clear ">
 	<div class=" res span-12 centre ">
@@ -55,7 +63,7 @@
 				$USER['image'] = format($myImageManager -> GetImage($USER['id_image'], 'tiny'));
 				echo '<div class="padding-5 right" >';
 					echo '<div class="user-image" ><a href="/account/" title="view your account" >';
-					echo '<img src="' . $USER['image']['full_path'] . '" class="content landscape " />';
+					echo '<img src="' . $USER['image']['full_path'] . '" class="content ' . $USER['image']['orientation'] . '" />';
 					echo '</a></div>';
 				echo '</div>';
 				//
@@ -67,7 +75,7 @@
 			else {
 				echo '<div class="padding-5 right" >';
 					echo '<div class="user-image" ><a class="modal js-login" href="javascript:;" title="login to your account" >';
-					echo '<img src="/web_graphics/placeholder-1-grey-small.jpg" class="content landscape " />';
+					echo '<img src="/web_graphics/placeholder-1-grey-small.jpg" class="content portrait" />';
 					echo '</a></div>';
 				echo '</div>';
 				//
@@ -80,18 +88,18 @@
 	
 	</div>
 </div>
-
-<div class="sub-header back-color-4 clear ">
-    <div class=" res span-12 text-centre centre" >
-    	<div class=" span-12 nav-menu res-margin-top" >
+<?php
+if($page == 'homepage') {
+echo '<div class="sub-header back-color-4 clear span-12 ">';
+    echo '<div class=" res span-12 text-centre centre" >';
+    	echo '<div class=" span-12 nav-menu res-margin-top" >';
 		    
-	  		<div id="search-container" class="left res span-2 res-tab res-mob ">
-	  	        <form id="search-form" method="post" class="centre padding-5" action="/scripts/processing/process.search.php" >
-	  	            <input class="clear span-12 left" type="text" placeholder="search for deals" name="search" value="<?php echo $search; ?>" />
-	  	            <input id="search" type="hidden" value=" <?php echo $search; ?> " />
-	  	        </form>
-	  	    </div>
-			<?php
+	  		echo '<div id="search-container" class="left res span-2 res-tab res-mob ">';
+	  	        echo '<form id="search-form" method="post" class="centre padding-5" action="/scripts/processing/process.search.php" >';
+	  	            echo '<input class="clear span-12 left" type="text" placeholder="search for deals" name="search" value="' . $search . '" />';
+	  	            echo '<input id="search" type="hidden" value="' . $search . '" />';
+	  	        echo '</form>';
+	  	    echo '</div>';
 				/*
             	echo '<div id="account-links" class="left res-des ">';
 			        if(!LOGGED_IN)
@@ -110,7 +118,7 @@
 				
 			    echo '</div>';
 				*/
-				print '<div class="" >';
+				print '<div class=" right" >';
 	            if(LOGGED_IN) {
 					echo '<div class="right res-des span-3 text-right header-button-wrapper">';
 						echo '<a class="add-deal-link button button-header button-add color-3 right " href="javascript:;" title="Share a Deal" >Share a Deal</a>';
@@ -125,20 +133,21 @@
 				}
 				else {
 					echo '<div class="right res-des span-3 text-right header-button-wrapper">';
-						echo '<a class="signup-link button button-header button-signup color-3 right " href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
+						echo '<a class="signup-link button button-header button-signup color-3 right js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
 					echo '</div>';
 					echo '<div class="right res-tab span-6 text-right header-button-wrapper">';
-						echo '<a class="signup-link button button-header button-signup color-3 right " href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
+						echo '<a class="signup-link button button-header button-signup color-3 right js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
 					echo '</div>';
 					echo '<div class="right res-mob span-12 text-right header-button-wrapper">';
-						echo '<a class="signup-link button button-header button-signup color-3 centre " href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
+						echo '<a class="signup-link button button-header button-signup color-3 centre js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
 					echo '</div>';
+					if(!IS_MEMBER) echo '<p id="tooltip-signup" class="tooltip-content-holder absolute" >Sign up today to start sharing!</p>';
 				}
 				print '</div>';
-			    ?>
-        </div>
-    </div>
-</div>
-
+        echo '</div>';
+    echo '</div>';
+echo '</div>';
+}
+?>
 	
  

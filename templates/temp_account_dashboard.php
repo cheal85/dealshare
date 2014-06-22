@@ -1,22 +1,12 @@
-<div class="span-9 left res ">
-  	
-	<div class="padding-10 ">
-        <div class="span-12 clear right " >
-            <?php  
-                include(DIR_TEMPLATES . '/temp_user_profile.php');
-            ?>
-        </div>  
+<div id="account-dashboard" class="span-9 right res  account-block">
+    <div class="padding-20 ">
+        <?php  
+            include(DIR_TEMPLATES . '/temp_account_dashboard_profile.php');
+        ?>
           
         <div class="sep-20 left">&nbsp;</div>
-            
-        <div id="account-main-top"  class="back-color-2 span-12 shadow clear" >
-            <div class="padding-10">
-                <h2 class="color-6">My Latest Deals</h2>
-                <p class="color-6 medium">The 3 latest deals you have shared</p>
-            </div>
-        </div>
-            
-        <div class="span-12 clear right" >
+         
+         <div class="centre clear" style="width:99%;">  
             <div class=" deal-holder">
                 <?php  
                 $options = array('user' => $USER['id']);

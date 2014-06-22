@@ -1,13 +1,8 @@
 
-<div class="span-9 res right ">
-	<div class="padding-10">
+<div id="account-deals" class="span-9 res right account-block">
+	<div class="padding-20">
 
-			<div id="account-main-top"  class="back-color-2 span-12 shadow" >
-			   	<div class="padding-10">
-					<h2 class="color-6">My Deals</h2>
-					<p class="color-6 medium">These are the deals you have shared on the site</p>
-			    </div>
-			</div>
+        	<h2 class="color-5 text-centre span-12">My Deals</h2>
 			
 			<div class="sep-20">&nbsp;</div>
 			

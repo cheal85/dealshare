@@ -38,7 +38,7 @@ var LOAD_MORE = false;
 					
 					//var html = BuildDeals(JS_CONTENT);
 					var html = data['html'];
-					console.log(html);
+					//console.log(html);
 						
 					$holder.append(html);
 					JS_MORE[type] = true;
@@ -59,11 +59,11 @@ var LOAD_MORE = false;
 		}
 	}
 	
-	GetDeals('deal');
-	
-	GetDeals('voucher');
-	
-	GetDeals('freebie');
+		GetDeals('deal');
+		
+		GetDeals('voucher');
+		
+		GetDeals('freebie');
 		  	
 	$('div.item').live('mouseenter', function()
 	{
@@ -107,17 +107,17 @@ var LOAD_MORE = false;
 		var $parent = $('div#deal-'+id)
 		var $largeVoteButton = $parent.find('a.icon-vote');
 		var $voteCounter = $parent.find('a.icon-vote-small span');
+		var share_link = $parent.find('a.js-share').attr('href');
 		console.log($voteCounter.html());
 		console.log($voteCounter.text());
 		var votes = parseInt($voteCounter.html());
 		var script ='/scripts/processing/ajax.deal.vote.php';
 		//  ---------------------------------------
-		console.log(votes);
 		$.post(script, {'page':JS_PAGE, 'id':id, 'submit': true}, function(data)
 		{
 			//alert('back');
 			if(data['success'] == true) {
-				var markup = '<a href="javascript:;" class="js-share icon-hover icon-share " title="Share this Deal" rel="' + id + '"><span class="hidden">share</span></a>';
+				var markup = '<a href="https://www.facebook.com/sharer/sharer.php?u=' + share_link + '" target="_blank" class="js-share icon-hover icon-share " title="Share this Deal" rel="' + id + '"><img src="/web_graphics/icons/share-icon.png" style="width:100%; height:100%;" /></a>';
 				
 				$largeVoteButton.after(markup);
 				$largeVoteButton.remove();

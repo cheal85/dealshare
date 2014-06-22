@@ -1,8 +1,8 @@
 
 <div id="site-footer" class="span-12 ">
   	<div class="back-color-5 span-12 foot-links">
-    	<div class="central-block">
-          	<div class="">
+    	<div class="w-960">
+          	<div class=" padding-10">
             	<div class="left res span-3">
 	                <h2 class="clear color-6 left span-12 bold">find out about us</h2>
 	                <p><a class="color-6 " href="/about/" title="Read about Dealshare" >read about us</a></p>
@@ -26,8 +26,8 @@
                   
         </div>
     </div>
-	<div class="central-block">
-        	<div class="foot-partners left res-tab res-des">
+	<div class="w-960">
+        	<div class="foot-partners left res-tab res-des padding-10">
             	<div class="padding-10">
                 <h2 class="clear left span-12 bold">our partners</h2>
                 <?php

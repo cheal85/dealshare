@@ -55,7 +55,6 @@ if($authenticated) {
 		echo '<div class="clear left span-12 text-centre" >';	
 		echo '<div class="padding-10 " ><div class="span-12 message-panel " ><p>Be the first to comment on this deal!</p></div></div>';
 		echo '</div>';	
-		$myDbManager -> debug('else');
 	}
 	//  ------------------------------------------
 	$json_array['html'] = ob_get_contents();

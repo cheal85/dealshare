@@ -21,4 +21,21 @@ $(document).ready(function(){
 		return true;
 	});
 
+	//  -------------------------------------------
+	//  OPEN LIGHTBOX WITH LOGIN MARKUP
+	$("a.js-external").live('click', function()
+	{
+		var id = $(this).attr('rel');
+		
+		$.post('/scripts/processing/ajax.deal.record-external.php', {'id':id,
+															'submit': true
+															},  function(data)
+		{
+		},
+		"json"
+		);
+		
+		return true;
+	});
+
 });

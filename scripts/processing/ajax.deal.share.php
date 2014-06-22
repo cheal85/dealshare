@@ -33,6 +33,7 @@ if($authenticated) {
 	//  ------------------------------------------
 	//  INCREMENT SHARES
 	if($db_manager -> Increment($post['id'], 'meta_shares')) {
+		if(LOGGED_IN) $myUserManager -> Increment($USER['id'], 'meta_shares_external');
 		$json_array['success'] = true;
 	}
 	//  ------------------------------------------

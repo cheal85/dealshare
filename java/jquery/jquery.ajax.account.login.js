@@ -41,7 +41,7 @@ $(document).ready(function(){
 			ChangeButtonState($button, false, 'Please wait..');
 			$.post('/scripts/processing/ajax.account.login.php', formData, function(data)
 			{
-				//console.log('back');
+				console.log(data['message']);
 				ChangeButtonState($button, true, 'Login');
 				if(data['success'] == true)
 				{
@@ -91,6 +91,9 @@ function LoginSignupMarkup(redirect, selected)
 	markup += '<label class="clear">password</label>';
 	markup += '<p><input class="clear left js-required js-clear-input" type="password" id="password" placeholder="enter a password" name="password" value="" rel="please enter a valid password" /></p>';
 	//  --------------------------------------------------
+	markup += '<a class="clear full left js-checkbox " rel="remember_me" ><img src="/web_graphics/icons/checkbox-off.png" class="checkbox" /><p class="checkbox" >Remember me</p></a>';
+	markup += '<input type="hidden"  name="remember_me" value="no" />';
+	//  --------------------------------------------------
 	//  HIDDEN INPUTS
 	markup += '<input class="clear left" type="hidden" id="redirect" name="redirect" value="'+ redirect +'" >';
 	markup += '<input type="hidden" name="submit" value="1" />';
@@ -114,6 +117,9 @@ function LoginSignupMarkup(redirect, selected)
 	//  --------------------------------------------------
 	markup += '<label class="clear">password</label>';
 	markup += '<p><input class="clear left js-required js-clear-input" type="password" placeholder="enter a password" id="password" name="password" rel="give your account a password" value="" /></p>';
+	//  --------------------------------------------------
+	markup += '<a class="clear full left js-checkbox on" rel="newsletter" ><img src="/web_graphics/icons/checkbox-on.png" class="checkbox" /><p class="checkbox" >Receive our newsletter</p></a>';
+	markup += '<input type="hidden"  name="newsletter" value="yes" />';
 	//  --------------------------------------------------
 	//  HIDDEN INPUTS
 	markup += '<input type="hidden" id="redirect" name="redirect" value="' + redirect + '" ><br>';

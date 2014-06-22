@@ -32,15 +32,15 @@
                                 	<img src="/web_graphics/help/icon-chrome.png" class=" " alt="Chrome Download Icon" />
 		                        	<p class="color-6">Chrome</p>
 		                        </a>
-								<a class="span-3 res left text-centre" href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" title="Download Chrome">
+								<a class="span-3 res left text-centre" href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" title="Download Firefox">
                                 	<img src="/web_graphics/help/icon-firefox.png" class=" " alt="Firefox Download Icon" />
 		                        	<p class="color-6">Firefox</p>
 		                        </a>
-								<a class="span-3 res left text-centre" href="http://www.opera.com/computer/windows" target="_blank" title="Download Chrome">
+								<a class="span-3 res left text-centre" href="http://www.opera.com/computer/windows" target="_blank" title="Download Opera">
                                 	<img src="/web_graphics/help/icon-opera.png" class=" " alt="Opera Download Icon" />
 		                        	<p class="color-6">Opera</p>
 		                        </a>
-								<a class="span-3 res left text-centre" href="http://support.apple.com/kb/dl1531" target="_blank" title="Download Chrome">
+								<a class="span-3 res left text-centre" href="http://support.apple.com/kb/dl1531" target="_blank" title="Download Safari">
                                 	<img src="/web_graphics/help/icon-safari.png" class=" " alt="Safari Download Icon" />
 		                        	<p class="color-6">Safari</p>
 		                        </a>

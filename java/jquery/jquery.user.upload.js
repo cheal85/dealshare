@@ -62,7 +62,6 @@ $(document).ready(function(){
 	}
 
 	CreateUserUploader();
-	CreateUploader();
 //  -------------------------------------------
 //  Authored by Cathal Healy
 //  For Dealshare.ie

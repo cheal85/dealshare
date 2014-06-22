@@ -42,14 +42,21 @@ $(document).ready(function(){
 	});
 	//  -------------------------------------------
 	//  PROCESS PASSWORD CHANGE
-	$("form#form-change-password").live('submit', function()
+	$("input#password-submit").live('click', function()
 	{
-		var $form = $(this);
-		var $button = $form.find('input[type="submit"]');
+		var $form = $(this).parents('div#password-form');;
+		var $button = $(this);
 		//  Remove previous errors
 		RemoveNotices($form);
 		var errors = ErrorChecking($form);
 		var error = '';
+		//  -----------------------------------
+		//  save information to variables
+		var old_password = $form.find('input#old_password').val();
+		var new_password_1 = $form.find('input#new_password_1').val();
+		var new_password_2 = $form.find('input#new_password_2').val();
+		var id = $('input#id').val();
+		var hash = $('input#hash').val();
 		//				
 		if(errors)
 		{
@@ -60,10 +67,10 @@ $(document).ready(function(){
 			var formData = $form.serialize();
 			//alert(formData);
 			ChangeButtonState($button, false, 'Please wait..');
-			$.post('/scripts/processing/ajax.account.change-password.php', formData, function(data)
+			$.post('/scripts/processing/ajax.account.change-password.php', {'old_password':old_password, 'new_password_1':new_password_1, 'new_password_2':new_password_2, 'id': id, 'hash': hash, 'submit': true}, function(data)
 			{
 				//alert('back');
-				ChangeButtonState($button, true, 'Save');
+				ChangeButtonState($button, true, 'Save Password');
 				//
 				if(data['success'] == true) {
 					ClearForm($form.attr('id'));

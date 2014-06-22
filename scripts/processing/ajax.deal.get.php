@@ -34,7 +34,6 @@ if($authenticated) {
 	//  LOAD DEAL CONTENT
 	ob_clean();
 	if($data = format($db_manager -> GetEntry($post['id']))) {
-		#$db_manager -> Increment($post['id'], 'meta_views');
 		include(DIR_TEMPLATES . '/lightbox/temp_view_deal.php');
 		$json_array['success'] = true;
 	}
@@ -44,7 +43,6 @@ if($authenticated) {
 	//  ------------------------------------------
 	//  COMPONENT TO DISPLAY DEAL CONTENT
 	$json_array['html'] = ob_get_contents();
-	$myDbManager -> debug(ob_get_contents());
 }
 else
 {

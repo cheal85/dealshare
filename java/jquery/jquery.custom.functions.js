@@ -2,6 +2,23 @@
 //  CUSTOM FUNCTIONALITY
 //  -------------------------------------
 
+//  -------------------------------------
+//  cookiebar
+$("a.js-dismiss-cookie-bar").live('click', function()
+{
+	alert('post');
+	$('div#cookie-bar').remove();
+	//
+	$.post('/scripts/processing/ajax.agree-to-cookies.php', {}, function(data)
+	{
+		//console.log('cookie set');
+	},
+	"json"
+	);
+	return false;
+});
+//  -------------------------------------
+//  loading spinner
 function Loading($container, doThis)
 {
 	var $loading = $container.find('div.js-loading');
@@ -26,6 +43,29 @@ function LoadMore($container, doThis)
 		$loadmore.show();	
 	}
 }
+//  ------------------------------------
+//  CHECKBOX FUNCTIONALITY
+//  ------------------------------------
+$('a.js-checkbox').live('click', function() {
+	var input_name = $(this).attr('rel');
+	var $image = $(this).find('img');
+	//
+	var $input = $('input[name="' + input_name + '"]');
+	//
+	if($(this).hasClass('on')) {
+		//  turn off
+		$image.attr('src', '/web_graphics/icons/checkbox-off.png');
+		$(this).removeClass('on');
+		$input.val('no');
+	}
+	else {
+		//  turn on
+		$image.attr('src', '/web_graphics/icons/checkbox-on.png');
+		$(this).addClass('on');
+		$input.val('yes');
+	}
+	return false;	
+});
 //  ------------------------------------
 //  PANEL FUNCTIONS
 //  ------------------------------------
@@ -75,7 +115,7 @@ function ErrorChecking(form) {
 	var errors = false;
 	var formId = form.attr('id');
 	
-	$('form#' + formId).find('.js-required').each(function()
+	$('#' + formId).find('.js-required').each(function()
 	{
 		if($(this).is(":visible")) {
 			if($(this).val() === '') {
@@ -85,7 +125,7 @@ function ErrorChecking(form) {
 		}
 	});
 	
-	$('form#' + formId).find('.js-email').each(function()
+	$('#' + formId).find('.js-email').each(function()
 	{
 		if($(this).is(":visible")) {
 			if($(this).val() !== '') {
@@ -100,7 +140,7 @@ function ErrorChecking(form) {
 		}
 	});
 	
-	$('form#' + formId).find('.js-number').each(function()
+	$('#' + formId).find('.js-number').each(function()
 	{
 		if($(this).is(":visible")) {
 			if($(this).val() !== '') {
@@ -115,7 +155,7 @@ function ErrorChecking(form) {
 		}
 	});
 	
-	$('form#' + formId).find('.js-url').each(function() {
+	$('#' + formId).find('.js-url').each(function() {
 		if($(this).is(":visible")) {
 			if($(this).val() !== '') {
 				if(!ValidateLink($(this).val())) {
@@ -126,7 +166,7 @@ function ErrorChecking(form) {
 		}
 	});
 	
-	var $passwords = $('form#' + formId).find('.js-password');
+	var $passwords = $('#' + formId).find('.js-password');
 	//
 	if($passwords.length > 1) {
 		var password1 = $('input#new_password_1').val();
@@ -150,11 +190,11 @@ function ErrorChecking(form) {
 //  ------------------------------------
 //  Remove all errors
 function RemoveErrors(formId) {
-	$('form#' + formId + ' div.error-panel').each(function() {
+	$('#' + formId + ' div.error-panel').each(function() {
 		$(this).remove();
 	});
 	
-	$('form#' + formId + ' span.inline-error').each(function() {
+	$('#' + formId + ' span.inline-error').each(function() {
 		$(this).remove();
 	});
 		
@@ -164,28 +204,28 @@ function RemoveErrors(formId) {
 //  Remove all notices
 function RemoveNotices(form) {
 	var formId = form.attr('id');
-	$('form#' + formId + ' div.message-panel').each(function() {
+	$('#' + formId + ' div.message-panel').each(function() {
 		$(this).remove();
 	});
-	$('form#' + formId + ' div.notice-panel').each(function() {
+	$('#' + formId + ' div.notice-panel').each(function() {
 		$(this).remove();
 	});
-	$('form#' + formId + ' div.error-panel').each(function() {
-		$(this).remove();
-	});
-	
-	$('form#' + formId + ' span.inline-error').each(function() {
+	$('#' + formId + ' div.error-panel').each(function() {
 		$(this).remove();
 	});
 	
-	$('form#' + formId + ' .error-field').each(function() {
+	$('#' + formId + ' span.inline-error').each(function() {
+		$(this).remove();
+	});
+	
+	$('#' + formId + ' .error-field').each(function() {
 		$(this).removeClass('error-field');
 	});
 	
 	return true;
 }
 function ClearForm(formId) {
-	$('form#' + formId + ' .js-clear-input').each(function () {
+	$('#' + formId + ' .js-clear-input').each(function () {
 		$(this)	.val('');
 	});
 	

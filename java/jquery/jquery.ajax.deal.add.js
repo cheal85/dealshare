@@ -22,7 +22,10 @@ $(document).ready(function(){
 
 		AddDealMarkup('deal')
 		CreateUploader();
-
+		//  -------------------------------------------
+		//  datepicker
+		$('.datepicker').datepicker();
+		//  -------------------------------------------
 		return false;
 	});
 
@@ -44,7 +47,10 @@ $(document).ready(function(){
 
 		AddDealMarkup('voucher')
 		CreateUploader();
-
+		//  -------------------------------------------
+		//  datepicker
+		$('.datepicker').datepicker();
+		//  -------------------------------------------
 		return false;
 	});
 
@@ -66,7 +72,10 @@ $(document).ready(function(){
 
 		AddDealMarkup('freebie')
 		CreateUploader();
-
+		//  -------------------------------------------
+		//  datepicker
+		$('.datepicker').datepicker();
+		//  -------------------------------------------
 		return false;
 	});
 
@@ -285,6 +294,9 @@ function BuildVoucherForm() {
 	//  --------------------------------------------------
 	markup += '<label class="clear">voucher code</label>';
 	markup += '<p class="clear left span-12" ><input type="text" class="clear left js-required js-clear-input" placeholder="voucher code" name="voucher_code" id="voucher_code" value="" rel="Please include the Code"/></p>';
+	//  --------------------------------------------------
+	markup += '<label class="clear">expiry date</label>';
+	markup += '<p class="clear left span-12" ><input type="text" class="clear left js-clear-input datepicker ll-skin-nigran" placeholder="expiry date" name="date_expiry" id="date_expiry" value="" /></p>';
 	//  --------------------------------------------------
 	markup += '<label class="clear">discount</label>';
 	markup += '<p class="clear span-4 left" ><input type="text" class="clear left js-number js-clear-input" maxlength="7" placeholder="discount" name="discount" value="" ></p>';
