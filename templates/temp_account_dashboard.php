@@ -7,6 +7,7 @@
         <div class="sep-20 left">&nbsp;</div>
          
          <div class="centre clear" style="width:99%;">  
+         	<h2 class="color-5 text-centre span-12">Latest Deals</h2>
             <div class=" deal-holder">
                 <?php  
                 $options = array('user' => $USER['id']);

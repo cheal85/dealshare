@@ -63,7 +63,7 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	//  --------------------------------------------------
 	echo  '<div class="item-hover full absolute res-des" style="display:none;">';
 	if(($voted === false) && LOGGED_IN) {
-		echo  '<a href="javascript:;" class="js-vote icon-hover icon-vote " title="Thank ' . $user['name'] . ' for this Deal" rel="' . $data['id'] . '"><img src="/web_graphics/icons/vote-icon.png" style="width:100%; height:100%;" />/a>';
+		echo  '<a href="javascript:;" class="js-vote icon-hover icon-vote " title="Thank ' . $user['name'] . ' for this Deal" rel="' . $data['id'] . '"><img src="/web_graphics/icons/vote-icon.png" style="width:100%; height:100%;" /></a>';
 	}
 	else {
 		echo  '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $data['dealshare_link'] . '" target="_blank" class="js-share icon-hover icon-share " title="Share this Deal" rel="' . $data['id'] . '"><img src="/web_graphics/icons/share-icon.png" style="width:100%; height:100%;" /></a>';

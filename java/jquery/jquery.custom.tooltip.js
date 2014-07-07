@@ -25,15 +25,19 @@ function CreateTooltip($element) {
 	//  create html markup
 	var markup = '';
 	//
-	markup += '<div class="tooltip" style="top:' + top + 'px; left:' + left + 'px; max-width:' + width + 'px;">';
+	markup += '<div class="tooltip" style="margin-top:' + (height +5) + 'px; margin-left:10px; max-width:' + width + 'px;">';
 	//  up arrow
 	markup += '<img src="/web_graphics/icons/tooltip-arrow.png" class="tooltip-arrow" />';
 	//  padding
+	markup += '<div class="padding-5">';
 	markup += '<p class="tooltip-content" >';
 	//  content
 	markup += content;
 	//  close
-	markup += '</p></div>';
+	markup += '</p>';
+	markup += '</div>';
+	//
+	markup += '</div>';
 	//  add to DOM
 	$target.before(markup);
 }

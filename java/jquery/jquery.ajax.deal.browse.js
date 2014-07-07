@@ -8,6 +8,33 @@ var JS_COUNT = (Math.floor(((JS_WIDTH - 40) / 220))*4);
 if(JS_COUNT < 12) JS_COUNT = 12;
 var LOAD_MORE = false;
 //  -------------------------------------------
+//  back to top functionality
+if (typeof JS_THIS_PAGE != 'undefined') {
+	if(JS_THIS_PAGE == 'homepage') {
+		// hide #back-top first
+		$("#back-top").hide();
+		//
+		// fade in #back-top
+		$(window).scroll(function() {
+		    var height = $(window).scrollTop();
+		    if(height  > 600) {
+		        // do something
+				$('#back-top').fadeIn();
+		    }
+			else {
+				$('#back-top').fadeOut();
+			}
+		});		
+		//
+		// scroll body to 0px on click
+		$('#back-top a').live('click', function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	}
+}
 
 	//  -------------------------------------------
 	//  PROCESS SIGNUP DETAILS

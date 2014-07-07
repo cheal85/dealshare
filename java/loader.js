@@ -30,7 +30,7 @@ document.write("<script type='text/javascript' src='/java/jquery/jquery.custom.f
 if (typeof JS_THIS_PAGE != 'undefined') {
 	if(JS_THIS_PAGE == 'homepage') document.write("<script type='text/javascript' src='/java/jquery/jquery.deal.upload.js'></script>");
 	//
-	if(JS_THIS_PAGE == 'edit-profile') document.write("<script type='text/javascript' src='/java/jquery/jquery.user.upload.js'></script>");
+	if( (JS_THIS_PAGE == 'edit-profile') || (JS_THIS_PAGE == 'add-deal') ) document.write("<script type='text/javascript' src='/java/jquery/jquery.user.upload.js'></script>");
 	//
 }
 //  -------------------------------------------
@@ -38,6 +38,7 @@ if (typeof JS_THIS_PAGE != 'undefined') {
 document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.account.login.js'></script>");
 document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.account.signup.js'></script>");
 document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.account.edit-profile.js'></script>");
+document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.contact.js'></script>");
 //  -------------------------------------------
 //  DEAL SCRIPTS
 document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.deal.browse.js'></script>");
@@ -50,5 +51,4 @@ document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.mer
 document.write("<script type='text/javascript' src='/java/jquery/jquery.custom.lightbox.js'></script>");
 document.write("<script type='text/javascript' src='/java/jquery/jquery.custom.tab-switching.js'></script>");
 document.write("<script type='text/javascript' src='/java/jquery/jquery.custom.tooltip.js'></script>");
-document.write("<script type='text/javascript' src='/java/jquery/jquery.ajax.contact.js'></script>");
 //  -------------------------------------------

@@ -1,8 +1,8 @@
 
-<div class="clear left res-mob js-menu back-color-2 ">
+<div class="clear left res-mob js-menu back-color-4 ">
     <div class=" menu-content span-12">
-        <div  id="account-side-top" class="">
-            <div class="padding-10">
+        <div  id="account-side-top" class="left">
+            <div class="padding-10 ">
             	<?php
  				if(($page == 'homepage') || ($page == 'contact') || ($page == 'about') || ($page == 'deal-page')) {
 					echo '<h2 class="color-6" ><span class="bold">Deal</span>share menu</h2>';
@@ -30,26 +30,29 @@
 					if(($page == 'homepage') || ($page == 'contact') || ($page == 'about') || ($page == 'deal-page')) {
 						
 		                echo '<li class="account-menu-item span-12 clear ' . ($page == 'contact'? ' on' : '') . '">';
-		                echo '<a href="/contact/" class="padding-20">Contact us</a></li>';
+		                echo '<a href="/contact/" class="padding-20 color-7">Contact us</a></li>';
 						
 		                echo '<li class="account-menu-item span-12 clear ' . ($page == 'about'? ' on' : '') . '">';
-		                echo '<a href="/about/" class="padding-20">About us</a></li>';
+		                echo '<a href="/about/" class="padding-20 color-7">About us</a></li>';
 					}
 					else {
 		                echo '<li class="account-menu-item span-12 clear ' . ($page == 'deals'? ' on' : '') . '">';
-		                echo '<a href="/account/my-deals/" class="padding-20">My Deals</a></li>';
+		                echo '<a href="/account/my-deals/" class="padding-20 color-7">My Deals</a></li>';
 						
 		                echo '<li class="account-menu-item span-12 clear ' . ($page == 'edit-profile'? ' on' : '') . '">';
-		                echo '<a href="/account/edit-profile/" class="padding-20">Edit Profile</a></li>';
+		                echo '<a href="/account/edit-profile/" class="padding-20 color-7">Edit your Details</a></li>';
+						
+		                echo '<li class="account-menu-item span-12 clear ' . ($page == 'edit-profile'? ' on' : '') . '">';
+		                echo '<a href="/account/add-deal/" class="padding-20 color-7">Share a Deal</a></li>';
 					}
 					
 					if(LOGGED_IN) {
 		                echo '<li class="account-menu-item span-12 clear">';
-		                echo '<a href="/scripts/processing/logout.php" class="padding-20">Logout</a></li>';
+		                echo '<a href="/scripts/processing/logout.php" class="padding-20 color-7">Logout</a></li>';
 					}
 					else {
 		                echo '<li class="account-menu-item span-12 clear">';
-		                echo '<a href="javscript:;" class="js-login padding-20">Login</a></li>';
+		                echo '<a href="javscript:;" class="js-login padding-20 color-7">Login</a></li>';
 					}
 				?>
             </ul>

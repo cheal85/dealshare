@@ -30,7 +30,8 @@ div.header-wrapper {
 div#header {
 1	padding: 0 30px 0 30px;	
 	background: #fff;
-	height: 52px;
+	height: 51px;
+	border-bottom: #E3E3E3 1px solid;
 }
 div.header-button-wrapper {
 	height: 30px;
@@ -72,9 +73,11 @@ div.add-deal {
 }
 div.sub-header {
 	position: relative !important;
+	display: block;
 	float: left;
-	height: 60px;
-	border-top: #E3E3E3 1px solid;
+1	min-height: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 div.browse-header {
 	position: relative !important;
@@ -294,6 +297,117 @@ div.item div.user-image {
 	overflow:hidden;
 	border-radius: 11px;
 }
+#back-top {
+	position: fixed;
+	bottom: 60px;
+	left: 90%;
+}
+#back-top a {
+	width: 60px;
+	height: 60px;
+	display: block;
+	text-align: center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 1px 0px #dedede;
+	-moz-box-shadow:    1px 1px 1px 0px #dedede;
+	box-shadow:         1px 1px 1px 0px #dedede;
+	background: #fff;
+}
+#back-top a:hover {
+1	color: #000;
+}
+/* ================================
+   STYLING FOR ABOUT PAGE
+   ================================*/
+h1#about-logo {
+   	font-size: 4em;
+   	line-height: 80%;
+}
+ 
+h1.about-heading {
+   	font-size: 5em;
+   	line-height: 60%;
+}
+ 
+div#panel-1 {
+	background: #fff;
+	height: 350px;
+	width: 100%;
+	background: url('/web_graphics/backgrounds/about-p1-grad.jpg') 0 bottom repeat-x;
+	float: left;
+}
+
+div#panel-2 {
+	background: #606060;
+	float: left;
+	width: 100%;
+}
+div#panel-2 div.about-container{
+	margin-top: 30px;
+}
+div#panel-2 p {
+	margin-top:30px;
+	clear:both;
+}
+div#panel-2 div#trans-1 {
+	position: absolute;
+	height: 140px;
+	width: 960px;
+	top: 260px;
+}
+div#panel-2 div#trans-1 img.about-share {
+	position: absolute;
+	right: 0;
+	top: -50px;
+}
+
+div#panel-3 {
+	background: #42bb9c;
+	float: left;
+	width: 100%;
+}
+div#panel-3 p {
+	margin-top:30px;
+	clear:both;
+}
+div#panel-3 div#trans-2 {
+	position: absolute;
+	height: 140px;
+	width: 960px;
+	left: 20px;
+	top: 680px;
+}
+div#panel-3 div.about-container{
+	margin-top: 30px;
+}
+div#panel-4 {
+	background: #fff;
+	float: left;
+	width: 100%;
+}
+div#panel-4 div#trans-3 img.about-save {
+	position: absolute;
+	right: 0;
+	top: 920px;
+}
+div#panel-4 div.about-container{
+	margin-top: 30px;
+}
+div#panel-4 p {
+	margin-top:30px;
+	clear:both;
+}
+div#panel-5 {
+	background: #606060;
+	float: left;
+	width: 100%;
+}
+
+
+
+
 /* ================================
    STYLING FOR DEAL MODALS
    ================================*/
@@ -403,6 +517,16 @@ img.content.landscape {
 /* ================================
    STYLING FOR ACCOUNT
    ================================*/
+ div.deal-image {
+	width: 180px; 
+	height: 180px; 
+	overflow:hidden;
+ }
+ div.modal-deal-image {
+	width: 160px; 
+	height: 160px; 
+	overflow:hidden;
+ }
  div.user-image {
 	width: 30px; 
 	height: 30px; 
@@ -436,6 +560,7 @@ img.content.landscape {
 	border: #E3E3E3 1px solid;
 	margin-top:30px;
 	margin-bottom:30px;
+	overflow: hidden;
 }
  div#account-sidebar{
  	width: 100%;
@@ -607,11 +732,13 @@ div#site-top a.on{
 1	background: url('/web_graphics/buttons/button-1.png') center center no-repeat !important;
 }
 .button-header {
-	width: 189px !important;
+1	width: 189px !important;
 	height: 37px !important;
 	border: none !important;
-	padding:0px 15px;
-	margin-bottom: 10px;
+1	padding:0px 15px;
+1	padding-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .button-signup {
 	display: block;
@@ -1135,12 +1262,6 @@ span.tiny {
    
    File Uploader Styles
    ========================================================================== */
-div.upload-holder {
-	position: relative;
-	width: 100%;
-	height: auto;
-1	border: 1px solid #b5e4d8;
-}
 div#user-uplaoder {
 	height: 40px;
 }

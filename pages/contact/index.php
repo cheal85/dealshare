@@ -66,7 +66,7 @@ $page = 'contact';
 
         <div class="content-container clear">
             
-            <div class="content-wrapper ">
+            <div class="content-wrapper span-12 left">
             	<?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
         		<div class="central-block">
                 	<?php 

@@ -18,6 +18,9 @@
 	                    <li class="account-menu-item span-12 clear <?php echo($page == 'account'? ' on' : '')?>">
 	                    <a href="/account/" class="padding-20 color-5">My Account</a>
 	                    </li>
+	                    <li class="account-menu-item span-12 clear <?php echo($page == 'add-deal'? ' on' : '')?>">
+	                    <a href="/account/add-deal/" class="padding-20 color-5">Add Deal</a>
+                        </li>
 	                    <li class="account-menu-item span-12 clear <?php echo($page == 'deals'? ' on' : '')?>">
 	                    <a href="/account/my-deals/" class="padding-20 color-5">My Deals</a>
 	                    </li>

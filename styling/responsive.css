@@ -182,6 +182,31 @@
          div.deal-summary {
             min-height:40px !important;
          }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
+         div#about-page {
+            font-size: 0.9em;
+
+         }
+         div#panel-2 div#trans-1 {
+            top: 160px;
+         }
+         div#panel-1 {
+            height: 250px;
+         }
+         div#panel-2 div.about-container {
+            margin-top:0;
+         }
+         div#panel-3 div.about-container {
+            margin-top:0;
+         }
+         div#panel-4 div.about-container {
+            margin-top:0;
+         }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
   }
    @media screen and (min-width: 477px) and (max-width: 696px) {
          .res.span-12 {
@@ -269,6 +294,31 @@
          .res-margin-top {
             margin-top: 20px;
          }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
+         div#about-page {
+            font-size: 0.8em;
+
+         }
+         div#panel-2 div#trans-1 {
+            top: 110px;
+         }
+         div#panel-1 {
+            height: 200px;
+         }
+         div#panel-2 div.about-container {
+            margin-top:0;
+         }
+         div#panel-3 div.about-container {
+            margin-top:0;
+         }
+         div#panel-4 div.about-container {
+            margin-top:0;
+         }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
  }
    @media screen and (min-width: 257px) and (max-width: 476px) {
          .res.span-12 {
@@ -356,6 +406,31 @@
          .res-margin-top {
             margin-top: 20px;
          }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
+         div#about-page {
+            font-size: 0.8em;
+
+         }
+         div#panel-2 div#trans-1 {
+            top: 60px;
+         }
+         div#panel-1 {
+            height: 150px;
+         }
+         div#panel-2 div.about-container {
+            margin-top:0;
+         }
+         div#panel-3 div.about-container {
+            margin-top:0;
+         }
+         div#panel-4 div.about-container {
+            margin-top:0;
+         }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
    }
    @media screen and (min-width: 25px) and (max-width: 256px) {
          .res.span-12 {
@@ -443,4 +518,17 @@
          .res-margin-top {
             margin-top: 20px;
          }
+         /*******************************/
+         /*   about page                */
+         /*******************************/
+         div#about-page p {
+            font-size: 0.5em;
+
+         }
+
+
+
+         /*******************************/
+         /*   about page                */
+         /*******************************/
    }

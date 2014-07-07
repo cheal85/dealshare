@@ -84,7 +84,7 @@
 								if($USER['user_type'] != 'guest') {
 									if(($USER['id'] == $data['id_user']) || ($USER['user_type'] == 'admin')) {
 										echo  '<div class="padding-3 right" >';
-											echo  '<p class="medium padding-5" ><a href="/account/add-deal?did=' . $data['id'] . '">Edit</a></p>';
+											echo  '<p class="medium padding-5" ><a href="/account/add-deal?did=' . $data['id'] . '&hash=' . $data['hash'] . '">Edit</a></p>';
 										echo  '</div>';
 									}
 								}

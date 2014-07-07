@@ -5,8 +5,8 @@ require_once(ROOT . '/scripts/config.php');
 require_once(DIR_PHP . '/loader.php');
 //  -----------------------------------------------------
 //  PAGE SPECIFIC DATA
-define('PAGE_TITLE', 'Edit Deal | Dealshare.ie');
-define('PAGE_DESCRIPTION', 'Dealshare.ie | Make changes to deals you have previously posted.  Update information or add new details.');
+define('PAGE_TITLE', 'Add Deal | Dealshare.ie');
+define('PAGE_DESCRIPTION', 'Dealshare.ie | Share new deals with the dealshare community or edit and update an existing deal');
 //  -----------------------------------------------------
 //  SET PAGE AND NAV SELECTION
 $nav = 'account';
@@ -41,7 +41,7 @@ if(!LOGGED_IN) header('location: /');
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
-    <script type="text/javascript">var JS_USER	= '<?php echo $USER['id']; ?>';</script>
+    <script type="text/javascript">var JS_THIS_PAGE	= '<?php echo $page; ?>';</script>
     <script src="/java/jquery-1.8.0.min.js"></script>
     <script src="/java/vendor/modernizr-2.6.2.min.js"></script>
     <script src="/java/loader.js"></script>
@@ -66,8 +66,8 @@ if(!LOGGED_IN) header('location: /');
         </div>
 
         <div class="content-container clear">
-            <?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
             <div class="content-wrapper left span-12">
+            	<?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
         		<div class="central-block" >
                 	<?php 
 					include(DIR_TEMPLATES . '/temp_account_sidebar.php'); 

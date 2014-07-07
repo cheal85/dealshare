@@ -16,9 +16,8 @@ $(document).ready(function(){
 			
 			onSubmit: function(id, fileName){
 				element =  $('div.image-gallery'),
-				$('div.js-avatar img').attr('src', '/web_graphics/backgrounds/loading.gif'),
-				$('div.js-avatar').css('width', '100px'),
-				$('div.js-avatar').css('height', '100px')
+				$('div.js-avatar img.content').hide(),
+				Loading($('div.js-avatar'), 'show')
 			},
 
 			onComplete: function(id, fileName, responseJSON){
@@ -31,23 +30,26 @@ $(document).ready(function(){
 	{
 		if(upload['success'] == true)
 		{
-			$('input#id_image').val(upload['id']);
-
 			$.post('/scripts/processing/ajax.user.image.process.php', {'id':upload['id'], 'submit': true}, function(response)
 			{
+				$('input#id_image').val(upload['id']);
+				Loading($('div.js-avatar'), 'hide');
 				//  ----------------------------------------
 				//  Display new image
 				var source = upload['path'] + 'medium/' + upload['filename'];
 				console.log(source);
 				var $avatar = $('div.js-avatar');
-				var $image = $avatar.find('img');
+				var $image = $avatar.find('img.content');
 				$image.attr('src', source);
 				//  remove orientation
+				$('div.js-avatar').css('width', '150px'),
+				$('div.js-avatar').css('height', '150px')
 				$image.removeClass('landscape');
 				$image.removeClass('portrait');
 				$image.addClass(upload['orientation']);
-				$('div.js-avatar').css('width', '200px'),
-				$('div.js-avatar').css('height', '200px')
+				$image.show();
+				//$('div.js-avatar').css('width', '200px'),
+				//$('div.js-avatar').css('height', '200px')
 				//  ----------------------------------------
 			},
 			"json"

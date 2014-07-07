@@ -62,7 +62,7 @@ $page = 'homepage';
     
 
             
-        <div class="header-wrapper back-color-4"">
+        <div id="top" class="header-wrapper back-color-4"">
             <?php 
             include(DIR_TEMPLATES . '/temp_header.php'); 
 			?>
@@ -71,8 +71,8 @@ $page = 'homepage';
         <div class="content-wrapper clear">
             <?php 
 			echo '<div id="homepage">';
-	            include(DIR_TEMPLATES . '/temp_header_browse.php'); 
 				include(DIR_TEMPLATES . '/temp_mobile_sidebar.php');
+	            include(DIR_TEMPLATES . '/temp_header_browse.php'); 
 				//  ----------------------------------------------------
 				//  Load in the first page of deals, but hide it.
 				//  this is purely for SEO
@@ -87,7 +87,9 @@ $page = 'homepage';
             <?php include(DIR_TEMPLATES . '/temp_footer.php'); ?>
             <img src="<?php echo '/web_graphics/logo-HD.jpg'; ?>" style="display:none;" />
         </div>
-        
+        <div id="back-top">
+          <a href="/#top" ><img src="/web_graphics/icons/icon-back-to-top.png" style="width:100%;" /></a>
+         </div>
     </body>
     
 

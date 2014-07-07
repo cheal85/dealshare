@@ -92,10 +92,10 @@ if(!$ALLOW_COOKIES) { //  if message has not already been dismissed
 if($page == 'homepage') {
 echo '<div class="sub-header back-color-4 clear span-12 ">';
     echo '<div class=" res span-12 text-centre centre" >';
-    	echo '<div class=" span-12 nav-menu res-margin-top" >';
+    	echo '<div class=" span-12 nav-menu " >';
 		    
 	  		echo '<div id="search-container" class="left res span-2 res-tab res-mob ">';
-	  	        echo '<form id="search-form" method="post" class="centre padding-5" action="/scripts/processing/process.search.php" >';
+	  	        echo '<form id="search-form" method="post" class="span-12 left" action="/scripts/processing/process.search.php" >';
 	  	            echo '<input class="clear span-12 left" type="text" placeholder="search for deals" name="search" value="' . $search . '" />';
 	  	            echo '<input id="search" type="hidden" value="' . $search . '" />';
 	  	        echo '</form>';
@@ -118,30 +118,18 @@ echo '<div class="sub-header back-color-4 clear span-12 ">';
 				
 			    echo '</div>';
 				*/
-				print '<div class=" right" >';
+				print '<div class=" span-2 res right" >';
 	            if(LOGGED_IN) {
-					echo '<div class="right res-des span-3 text-right header-button-wrapper">';
-						echo '<a class="add-deal-link button button-header button-add color-3 right " href="javascript:;" title="Share a Deal" >Share a Deal</a>';
-					echo '</div>';
-					echo '<div class="right res-tab span-6 text-right header-button-wrapper">';
-						echo '<a class="add-deal-link button button-header button-add color-3 right " href="javascript:;" title="Share a Deal" >Share a Deal</a>';
-					echo '</div>';
-					echo '<div class="right res-mob span-12 text-right header-button-wrapper">';
+					echo '<div class="right span-12 text-right header-button-wrapper">';
 						echo '<a class="add-deal-link button button-header button-add color-3 centre " href="javascript:;" title="Share a Deal" >Share a Deal</a>';
 					echo '</div>';
 					#echo '<a id="" class="button button-header button-add color-3 centre res-mob res-tab" href="/account/add-deal/" title="Share a Deal" >Share a Deal</a>';
 				}
 				else {
-					echo '<div class="right res-des span-3 text-right header-button-wrapper">';
-						echo '<a class="signup-link button button-header button-signup color-3 right js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
+					echo '<div class="right span-12 header-button-wrapper">';
+						echo '<a class="signup-link span-12 button button-header button-signup color-3 right js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
 					echo '</div>';
-					echo '<div class="right res-tab span-6 text-right header-button-wrapper">';
-						echo '<a class="signup-link button button-header button-signup color-3 right js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
-					echo '</div>';
-					echo '<div class="right res-mob span-12 text-right header-button-wrapper">';
-						echo '<a class="signup-link button button-header button-signup color-3 centre js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
-					echo '</div>';
-					if(!IS_MEMBER) echo '<p id="tooltip-signup" class="tooltip-content-holder absolute" >Sign up today to start sharing!</p>';
+					echo '<p id="tooltip-signup" class="tooltip-content-holder absolute" >Sign up today to start sharing!</p>';
 				}
 				print '</div>';
         echo '</div>';

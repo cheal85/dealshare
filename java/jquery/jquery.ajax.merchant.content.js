@@ -7,17 +7,18 @@ $(document).ready(function(){
 	//  -------------------------------------------
 	//  PROCESS LINK
 	$("input.js-link").live('change', function()
-	{		
+	{	
+		console.log('find image');	
 		var mylink = $(this).val();
 		var $form = $(this).parents('form');
-		var $msgHolder = $form.find('div.message');
-		var $gallery = $('div.image-gallery');
+		var $image = $('div.upload-holder img.content');
 				
 		if(mylink != '')
 		{
 			if(ValidateLink(mylink)) {
 				Loading($('div.upload-holder'), 'show')
-				$gallery.empty();
+				$image.attr('src', '');
+				$image.hide();
 				//alert(mylink);
 				$.post('/scripts/processing/ajax.identify-merchant.php', {'link': mylink, 'submit': true}, function(data)
 				{
@@ -25,6 +26,7 @@ $(document).ready(function(){
 					Loading($('div.upload-holder'), 'hide');
 					//console.log(data['debug']);
 					if(data['success'] == true) {
+						console.log('back');
 						var image = data['image'];
 						//
 						$('input[name="id_image"]').val(image.id);
@@ -55,17 +57,24 @@ $(document).ready(function(){
 
 	function ProcessRemoteImage(image)
 	{
-		var $gallery = $('div.image-gallery');
+		console.log(image.full_path);
+		var $image = $('div.upload-holder img.content');
+		$image.removeClass('landscape');
+		$image.removeClass('portrait');
+		$image.addClass(image.orientation);
+		$image.attr('src', image.full_path);
+		$image.show();
+		$('input#id_image').val(image.id);
+		/*
 		var markup = '';
 		markup += '<div class="span-12 clear content-preview on" >';
 			markup += '<div class="padding-10" >';
-			markup += '<img class="preview ' + image.orientation + '" src="' + image.full_path + '" alt="' + image.title + '" title="Select this image to use with your deal" />';
-			markup += '<input type="hidden" class="id-holder" value="' + image.id  + '" />';
+			markup += '<img class="content ' + image.orientation + '" src="' + image.full_path + '" alt="' + image.title + '" title="Selected deal image" />';
+			markup += '<input id="id_image" type="hidden" value="' + image.id  + '" />';
 			markup += '<p class="clear color-6" >Selected Image</p>';
 			markup += '</div>';
 		markup += '</div>';
-										  
-		$gallery.html(markup);
+		*/
 
 		if(image['success'] == true)
 		{

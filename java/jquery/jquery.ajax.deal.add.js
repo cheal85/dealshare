@@ -351,10 +351,12 @@ function BuildImageGallery() {
 		markup += '<h2 class="color-2">deal image</h2>';
 		markup += '<div class="upload-holder " >';
 			markup += '<div id="file-uploader" class="full clear centre" >  </div>'; 
+			markup += '<div class="clear modal-deal-image centre" >';
 			markup += '<div class="js-loading clear centre padding " style="display:none; ">';
 			markup += '<div class="centre" style="width: 64px; height: 64px;"><img src="/web_graphics/backgrounds/loading.gif" class="img-loading" /></div>';
 			markup += '<p class="clear centre">Retreiving Image</p></div>';
-			markup += '<div class="image-gallery clear" > </div>';
+			markup += '<img class="preview content landscape" src="/web_uploads/images/site_graphics/medium/placeholder-2.jpg" style="display:none;" /></div>';
+			markup += '<input id="id_image" type="hidden" class="id-holder" value="" />'
 			//markup += '<div class="js-loading clear centre " style="display:none; width: 64px; height: 64px;"><img src="/web_graphics/backgrounds/loading.gif" class="img-loading" /></div>'; 
 		markup += '</div>';
 	markup += '</div>';
