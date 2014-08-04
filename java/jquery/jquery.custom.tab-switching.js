@@ -78,10 +78,12 @@ $('a.js-browse-link').live('click', function()
 			  }, 300, function() {
 			    // Animation complete.
 			});
+			$('div.homepage-content').removeClass('small');
 			//$('div.js-menu').css('left', '-300%');
 		}
 		else {
 			$(this).addClass('on');
+			$('div.homepage-content').addClass('small');
 			$('div.js-menu').animate({
 			    left: "0"
 			  }, 300, function() {
@@ -94,6 +96,7 @@ $('a.js-browse-link').live('click', function()
 //  -------------------------------------
 //  EXPANDABLE BLOCK
 //  -------------------------------------
+/*
 	$('a.js-expand-button').live('click', function() {
 		if($(this).hasClass('on')) {
 			$('div.js-expand').css('display', 'none');	
@@ -108,5 +111,18 @@ $('a.js-browse-link').live('click', function()
 			$(this).addClass('on');	
 		}
 	});
+*/
+	$('a.js-expand-button').live('click', function() {
+		var $target = $('#' + $(this).attr('rel'));
+		if($(this).hasClass('on')) {
+			$(this).removeClass('on');
+			$target.hide();
+		}
+		else {
+			$(this).addClass('on');	
+			$target.show();
+		}
+	});
+
 //  -------------------------------------
 });

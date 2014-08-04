@@ -152,6 +152,28 @@ div.seo-content {
 1	height: 1px;
 1	visibility: hidden;
 }
+
+div.category-wrap {
+	overflow: hidden;
+}
+div.category-wrap ul {
+	width: 100%;
+}
+div.category-wrap ul li {
+	width: 100%;
+}div.category-wrap ul li {
+	float: left;
+}
+div.category-wrap ul li a {
+	text-align: left;
+	padding: 10px;
+	float: left;
+	width: 100%;
+}
+div.category-wrap ul li a.on {
+	background: #42bb9c;
+	color: #fff;
+}
 /* ================================
    STYLING FOR DEAL ITEMS
    ================================*/
@@ -179,7 +201,7 @@ div.item .item-price {
 	width: auto;
 	min-width: 40px;
 	height: 25px;
-	background: #42bb9c;
+	background: #A650AB;
 }
 div.item .item-price p {
 	color: #fff;
@@ -299,21 +321,22 @@ div.item div.user-image {
 }
 #back-top {
 	position: fixed;
-	bottom: 60px;
-	left: 90%;
+	bottom: 120px;
+	left: 50%;
 }
 #back-top a {
 	width: 60px;
 	height: 60px;
+	margin-left:-30px;
 	display: block;
 	text-align: center;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	-webkit-box-shadow: 1px 1px 1px 0px #dedede;
-	-moz-box-shadow:    1px 1px 1px 0px #dedede;
-	box-shadow:         1px 1px 1px 0px #dedede;
-	background: #fff;
+1	-webkit-border-radius: 5px;
+1	-moz-border-radius: 5px;
+1	border-radius: 5px;
+1	-webkit-box-shadow: 1px 1px 1px 0px #dedede;
+1	-moz-box-shadow:    1px 1px 1px 0px #dedede;
+1	box-shadow:         1px 1px 1px 0px #dedede;
+1	background: #fff;
 }
 #back-top a:hover {
 1	color: #000;
@@ -528,12 +551,10 @@ img.content.landscape {
 	overflow:hidden;
  }
  div.user-image {
-	width: 30px; 
-	height: 30px; 
+	width: 50px; 
+	height: 50px; 
 	overflow:hidden;
-	border-radius: 15px;
- 1	max-height: 170px;
- 1	height: 170px;
+	border-radius: 25px;
  }
  div.user-profile-image {
 	width: 150px; 
@@ -565,14 +586,12 @@ img.content.landscape {
  div#account-sidebar{
  	width: 100%;
  	min-height: 270px;
+ 	border-top: #dedede solid 1px;
  }
  div#account-sidebar-links{
  	border-top: #dedede 1px solid;
  }
 
- div#account-side-top {
- 	height:50px;
- }
  li.account-menu-item {
  	display: block;
  	height: 45px;
@@ -599,11 +618,6 @@ img.content.landscape {
  }
  a.js-menu-button {
  	height: 40px;
- 	background: url('/web_graphics/buttons/menu.png') center center no-repeat;
- 	opacity: 0.8;
- }
- a.js-menu-button.on {
- 	opacity: 1;
  }
  div.js-menu {
  	position:absolute;
@@ -613,8 +627,7 @@ img.content.landscape {
  	width: 100%;
  	height: 100%;
  	left: -100%;
- 	z-index: 200;
- 	box-shadow: 0 0 10px #ccc;
+ 	z-index: 900;
  }
   div.js-menu div.menu-content{
   	width: 100%;
@@ -626,12 +639,35 @@ img.content.landscape {
  	padding-bottom: 1px;
  }
  a.js-expand-button:hover {
- 	border-bottom: #575757 1px dotted;
+ 	border-bottom: #606060 1px dotted;
 	padding-bottom: 0px;
  }
  div.js-expand {
  	display: none;
  }
+ div.homepage-content.small {
+ 	height: 800px;
+ 	overflow:hidden;
+ }
+  li.side-menu-item {
+ 	display: block;
+ 	height: 45px;
+ 	list-style: none;
+ } 
+ li.side-menu-item.on {
+ 	background: #606060;
+ }
+ li.side-menu-item.on a {
+ 	color: #fff;
+ }
+ li.side-menu-item a {
+ 	line-height: 45px;
+ 	font-size: 1.2em;
+ }
+ div#side-main-top {
+ 	height:70px;
+ }
+
 /* ================================
    STYLING FOR ACCOUNT
    ================================*/
@@ -1027,11 +1063,11 @@ input[type="submit"]:hover {
 }
 
 input[name="search"] {
-	width: 220px;
-	height: 30px;
+	width: 240px;
+	height: 37px;
 	padding: 10px;
 1	margin-top: 5px;
-	border: #3BAD90 1px solid;
+	border: #cdcdcd 1px solid;
 }
 select {
 	padding: 8px 0;	

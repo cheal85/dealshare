@@ -51,6 +51,7 @@ require_once (DIR_PHP_CLASSES . '/class.DataManager.php');
 require_once (DIR_PHP_CLASSES . '/class.AnalyticsManager.php');
 require_once (DIR_PHP_CLASSES . '/class.ImageManager.php');
 require_once (DIR_PHP_CLASSES . '/class.UserManager.php');
+require_once (DIR_PHP_CLASSES . '/class.CategoryManager.php');
 require_once (DIR_PHP_CLASSES . '/class.DealManager.php');
 require_once (DIR_PHP_CLASSES . '/class.CommentManager.php');
 require_once (DIR_PHP_CLASSES . '/class.MerchantManager.php');
@@ -66,6 +67,8 @@ $myAnalyticsManager = new AnalyticsManager();
 $myImageManager = new ImageManager();
 //  ---------------------------------------------------------------
 $myUserManager = new UserManager();
+//  ---------------------------------------------------------------
+$myCategoryManager = new CategoryManager();
 //  ---------------------------------------------------------------
 $myDealManager = new DealManager();
 //  ---------------------------------------------------------------
@@ -92,7 +95,7 @@ if($tmp = $myUserManager -> GetEntry($user_id)) {
 		//  login this user
 		$_SESSION[SITE_NAME]['LOGGED_ID'] = $user_id;
 		//  reset remember_me code
-		$myUserManager -> RememberUser($user_id);
+		$myUserManager -> RememberMe($user_id);
 		$myUserManager -> MemberCookie();
 	}
 }

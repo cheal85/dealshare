@@ -9,7 +9,7 @@ define('PAGE_TITLE', 'Account Activation | Dealshare.ie');
 define('PAGE_DESCRIPTION', 'Dealshare.ie | Your Dealshare.ie Account is now active.  Start sharing your favourite deal with our other users today.');
 //  -----------------------------------------------------
 //  SET PAGE AND NAV SELECTION
-$nav = 'activation';
+$nav = 'account';
 $page = 'activation';
 //  -----------------------------------------------------
 ?>

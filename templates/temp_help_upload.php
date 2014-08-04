@@ -1,18 +1,17 @@
 
 <div class="span-12 right ">
 	<div class="padding-10 ">
-        <h2 class="color-5 text-centre span-12">Supported Browsers</h2>
-        <p class="color-5 text-centre">Download one of these supported browsers</p>
+        <h2 class="color-5 text-centre span-12">Image Upload</h2>
+        <p class="color-5 text-centre">Instructions for upload of images from PC or Mac</p>
         
         <div class="sep-20">&nbsp;</div>
         
         <div class="span-12 clear left " >
-            <div class="padding-20 clear " >                
+            <div class="padding-20 clear " >
+                
                 <div class="span-9 res clear centre back-color-5 " >
                     <div class="padding-20 ">
                         <h2 class="color-6 text-centre" >Update your browser to one of the below options</h2>
-                        
-                        <div class="sep-20 clear left">&nbsp;</div>
                         
                         <div class="clear ">
                             <a class="span-3 res left text-centre" href="https://www.google.com/intl/en/chrome/browser/" target="_blank" title="Download Chrome">
@@ -38,12 +37,10 @@
                 <div class="sep-20 clear left">&nbsp;</div>
                 
                 <div class="span-9 res centre  " >
-                    <h2 class="color-5 text-centre span-12">Why should I upgrade?</h2>
-                    <div class="sep">&nbsp;</div>
+                    <h1>Why should I upgrade?</h1>
                     <p>The web is evolving and to take advantage of the new technologies and opportunities, we have chosen not to fully support older Browsers.  This decision frees us to concentrate on doing really cool things with our website.  Older browsers don't support a number of design aesthetics we have chosen for the site as well as a great deal of the functionality we have built to provide our users with the best possible experience.</p>
                     <div class="sep-20 clear left">&nbsp;</div>
-                    <h2 class="color-5 text-centre span-12">Where is Internet Explorer?</h2>
-                    <div class="sep">&nbsp;</div>
+                    <h1>Where is Internet Explorer?</h1>
                     <p>While Internet Explorer is the most used web browser on the internet, it is the least compliant with modern html standards.  We do not recommend the use of Internet Explorer both for security reasons and because it lacks support for advanced web functionality.</p>
                 </div>
             </div>

@@ -31,15 +31,16 @@ if($authenticated) {
 	$db_manager = $myDealManager;
 	//  ----------------------------------------
 	//  create array of details for data
-	$array = array('type' 		=> $post['type'],
+	$array = array(
 					'count' 	=> $post['count'],
-					#'category' 	=> $post['category']
+					'category' 	=> $post['category']
 					);
 	//
 	$search = $post['search'];
 	if($search != '') $array['search'] = $search;
 	//  ------------------------------------------
 	//  LOAD DEAL CONTENT
+	$GLOBALS['myDbManager'] -> debug('Ajax get entries - category: ' . $post['category']);
 	if($deals = $db_manager -> GetEntries($post['page'], $array)) {
 	  	$json_array['success'] = true;
 		$myDbManager -> debug('deals got');
@@ -48,14 +49,12 @@ if($authenticated) {
 		ob_clean();		
 		for($i=0; $i<count($deals); $i++) {
 			$data = format($deals[$i]);
-			$GLOBALS['myDbManager'] -> debug('title: ' . $data['title']);
-			$GLOBALS['myDbManager'] -> debug('directory: ' . DIR_TEMPLATES);
 			//  Create markup
 			include(DIR_TEMPLATES . '/temp_deals_item.php');
 			//  ---------------------------------------------
 		}
 		$json_array['html'] = ob_get_contents();
-		$GLOBALS['myDbManager'] -> debug('html: ' . ob_get_contents());
+		#$GLOBALS['myDbManager'] -> debug('html: ' . ob_get_contents());
 		//  ----------------------------------------------
   	}
 	else {

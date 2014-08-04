@@ -4,23 +4,16 @@
 //  -------------------------------------------
 var JS_CONTENT = new Array();
 
-var JS_PAGE = new Array();
-JS_PAGE['deal'] = 1;
-JS_PAGE['voucher'] = 1;
-JS_PAGE['freebie'] = 1;
+var JS_PAGE = 1;
 
-var JS_LOADED = new Array();
-JS_LOADED['deal'] = 0;
-JS_LOADED['voucher'] = 0;
-JS_LOADED['freebie'] = 0;
+var JS_LOADED = 0;
 
-var JS_MORE = new Array();
-JS_MORE['deal'] = true;
-JS_MORE['voucher'] = true;
-JS_MORE['freebie'] = true;
+
+var JS_MORE = true;
 
 var JS_TYPE = 'deal';
 
+var JS_SELECTED_CAT = '';
 
 
 //  BASE SCRIPTS

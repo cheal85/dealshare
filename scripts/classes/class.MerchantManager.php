@@ -227,25 +227,36 @@ class MerchantManager extends DataManager
 				foreach($dom -> getElementsByTagName('img') as $element) {
 					# Show the <a href>
 					if($element -> getAttribute('src') != '') {
-						$remote = $element -> getAttribute('src');
+						$tmp = $element -> getAttribute('src');
 						$GLOBALS['myDbManager'] -> debug($remote);
 						if(strpos($remote, 'http') === false) {
 							$GLOBALS['myDbManager'] -> debug('add domain');
-							$remote = 'http://www.' . $merchantArray['keyword'] . $remote;
+							$remote_url[] = 'http://www.' . $merchantArray['keyword'] . $remote;
+							$remote_url[] = 'https://www.' . $merchantArray['keyword'] . $remote;
+							$remote_url[] = 'http://' . $merchantArray['keyword'] . $remote;
+							$remote_url[] = 'https://' . $merchantArray['keyword'] . $remote;
 							$GLOBALS['myDbManager'] -> debug('fixed image: ' . $remote);
 						}
-					}
-					if(fileExists($remote)) {
-						$GLOBALS['myDbManager'] -> debug('get image size');
-						$size = getimagesize($remote);
-						
-						$GLOBALS['myDbManager'] -> debug('width: ' . $size[0]);
-						$GLOBALS['myDbManager'] -> debug('height: ' . $size[1]);
-						if(($size[0] > $sizes[0]) || ($size[1] > $sizes[0])) {
-							$GLOBALS['myDbManager'] -> debug('record image: ' . $remote);
-							$images[] = $remote;
+						else {
+							$remote_url[] = $tmp;
 						}
-					}				
+					}
+					
+					for($r=0; $r<count($remote_url); $r++) {
+						if(fileExists($remote_url[$r])) {
+							$GLOBALS['myDbManager'] -> debug('get image size');
+							$size = getimagesize($remote_url[$r]);
+							
+							$GLOBALS['myDbManager'] -> debug('width: ' . $size[0]);
+							$GLOBALS['myDbManager'] -> debug('height: ' . $size[1]);
+							if(($size[0] > $sizes[0]) || ($size[1] > $sizes[0])) {
+								$GLOBALS['myDbManager'] -> debug('record image: ' . $remote_url[$r]);
+								$images[] = $remote_url[$r];
+							}
+							$r = (count($remote_url) + 5);  //  end loop
+						}	
+					}
+									
 				}
 				//  loop through the set of images 3 times
 				//  attempting to recover the best quality

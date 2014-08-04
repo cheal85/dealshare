@@ -2,7 +2,7 @@
 
 <div class="span-3 clear left res-des">
 	<div class="padding-10">
-		<div id="account-sidebar" class="span-12 clear left">
+		<div class="span-12 clear left">
             <div  id="account-side-top" class="">
                 <div class="padding-10">
                     <h2 class="color-5 text-centre" >Welcome</h2>
@@ -19,7 +19,7 @@
 	                    <a href="/account/" class="padding-20 color-5">My Account</a>
 	                    </li>
 	                    <li class="account-menu-item span-12 clear <?php echo($page == 'add-deal'? ' on' : '')?>">
-	                    <a href="/account/add-deal/" class="padding-20 color-5">Add Deal</a>
+	                    <a href="/account/add-deal/" class="padding-20 color-5">Share a Deal</a>
                         </li>
 	                    <li class="account-menu-item span-12 clear <?php echo($page == 'deals'? ' on' : '')?>">
 	                    <a href="/account/my-deals/" class="padding-20 color-5">My Deals</a>

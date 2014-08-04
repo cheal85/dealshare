@@ -70,9 +70,7 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	}
 	echo  '</div>';	
 	//  --------------------------------------------------
-		echo '<a class="view-deal res-des" href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" rel="temp_view_deal.php:::' . $data['id'] . '" title="View this Deal" ><img id="deal-image-' . $data['id'] . '"class="' . $data['image']['orientation'] . ' image-item" alt="' . $data['title'] . '" src="' . $data['image']['path'] . 'medium/' . $data['image']['filename'] . '"  /></a>';
-	//  --------------------------------------------------
-		echo '<a class="res-mob res-tab" href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" title="View this Deal" ><img id="deal-image-' . $data['id'] . '"class="' . $data['image']['orientation'] . ' image-item" src="' . $data['image']['path'] . 'medium/' . $data['image']['filename'] . '" alt="Product Image for deal: ' . $data['title'] . '" /></a>';
+		echo '<a class="" href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" title="View this Deal" ><img id="deal-image-' . $data['id'] . '"class="' . $data['image']['orientation'] . ' image-item" src="' . $data['image']['path'] . 'medium/' . $data['image']['filename'] . '" alt="Product Image for deal: ' . $data['title'] . '" /></a>';
 	echo  '</div>';
 	//echo  '<img class="shine clear" src="/web_graphics/shine.png" >';
 	//  --------------------------------------------------
@@ -84,12 +82,9 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	  				echo '<div class="item-title clear left span-12">';
 						$title = $data['title'];
 						$title = short($title, 50);
-						//  DESKTOP
-	  					echo '<h1 class="clear left res-des" ><a class="view-deal" href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" rel="temp_view_deal.php:::' . $data['id'] . '" ';
-						echo ' title="' . $data['description'] . '" >' . $title . '</a></h1>';
-						//  MOBILE
-	  					echo '<h1 class="clear left res-mob res-tab" ><a href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/"';
-						echo ' title="' . $data['description'] . '" >' . $title . '</a></h1>';
+						//  TITLE
+						echo '<a class="" href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" title="View this Deal" >';
+	  					echo '<h1 class="clear left " >' . $title . '</h1></a>';
 						//
 						echo '<a class="external-link js-external" href="' . $data['link'] . '"  target="_blank" title="Get this Deal!" rel="' . $data['id'] . '" >&nbsp</a>';
 						//

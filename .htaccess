@@ -18,6 +18,7 @@ RewriteRule ^account/?(.*)$ pages/account/$1/ [L,QSA]
 RewriteRule ^about/?(.*)$ pages/about/$1/ [L,QSA]
 RewriteRule ^contact/?(.*)$ pages/contact/$1/ [L,QSA]
 RewriteRule ^help-browser/?(.*)$ pages/help-browser/$1/ [L,QSA]
+RewriteRule ^help-upload/?(.*)$ pages/help-upload/$1/ [L,QSA]
 
 
 

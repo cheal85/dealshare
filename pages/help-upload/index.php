@@ -4,36 +4,14 @@ define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 require_once(ROOT . '/scripts/config.php');
 require_once(DIR_PHP . '/loader.php');
 //  -----------------------------------------------------
-//  Get Requested Deal so we can use meta data
-if($data = $myDealManager -> GetDeal($DEAL_HASH, $DEAL_ID)) {
-	$data = format($data);
-	$PAGE_ERROR = false;
-	//  --------------------------------------------------
-	//  Get Image
-	$image = $myImageManager -> GetImage($data['id_image'], 'large');
-	$user = format($myUserManager -> GetEntry($data['id_user']));
-	$user['image'] = $myImageManager -> GetImage($user['id_image'], 'small');
-	//  FOR SEO
-	$full_image = $myImageManager -> GetImage($data['id_image'], 'full');
-	//  -----------------------------------------------------
-	//  PAGE SPECIFIC DATA
-	define('PAGE_TITLE', $data['title'] . ' | Dealshare.ie');
-	define('PAGE_DESCRIPTION', 'Dealshare.ie | ' . short($data['description'], 30));
-	//  -----------------------------------------------------
-}
-else {
-	$PAGE_ERROR = true;	
-	//  -----------------------------------------------------
-	//  PAGE SPECIFIC DATA
-	define('PAGE_TITLE', 'Deal not Found| Dealshare.ie');
-	define('PAGE_DESCRIPTION', 'Dealshare Website');
-	//  -----------------------------------------------------
-}
+//  PAGE SPECIFIC DATA
+define('PAGE_TITLE', 'Browser Upgrade | Dealshare.ie');
+define('PAGE_DESCRIPTION', 'Dealshare.ie | Upgrade your browser to take full advantage of the Dealshare.ie website.');
 //  -----------------------------------------------------
 //  SET PAGE AND NAV SELECTION
-$nav = 'deal-page';
-$page = 'deal-page';
-
+$nav = 'upload-help';
+$page = 'upload-help';
+//  -----------------------------------------------------
 ?>
 
 
@@ -56,9 +34,6 @@ $page = 'deal-page';
     <meta name="robots" content="index,follow" />
     <meta name="revisit-after" content="1 day" />
     <meta name="viewport" content="width=device-width" />        
-    <meta property="og:title" content="<?php echo PAGE_TITLE; ?>" /> 
-    <meta property="og:description" content="<?php echo PAGE_DESCRIPTION; ?>" /> 
-    <meta property="og:image" content="<?php echo SITE_ROOT . $full_image['full_path']; ?>" />     
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <?php LoadStyles(); ?>
   	<!-- WGCCxxx -->
@@ -93,9 +68,9 @@ $page = 'deal-page';
             
             <div class="content-wrapper left span-12">
             	<?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
-        		<div class="central-block">
+        		<div class="central-block clear">
                 	<?php 
-					include(DIR_TEMPLATES . '/temp_deal_detail.php'); 
+					include(DIR_TEMPLATES . '/temp_help_upload.php'); 
 					?>
                	</div>
             </div>

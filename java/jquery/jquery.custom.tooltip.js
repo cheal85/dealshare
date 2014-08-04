@@ -45,3 +45,50 @@ function CreateTooltip($element) {
 CreateTooltip($('p#tooltip-signup'));
 
 });
+
+function ShowSubCategory($element, show) {
+	console.log('show: ' + show);
+	var $parent = $element.parents('div.cat-container');
+	var parent_id = String($parent.attr('id'));
+	console.log('id: ' + parent_id);
+	var level_id = parent_id.split("-");
+	var level = parseInt(level_id[1]);
+	var cat = $element.attr('rel');
+	var $subCat;
+	console.log('level: ' + level_id[1]);
+	
+	if(show) {
+		$element.addClass('on');
+		$element.addClass('selected');
+	}
+	else {
+		$element.removeClass('selected');
+		console.log(parseInt($element.attr('rel')));
+		console.log(parseInt(JS_SELECTED_CAT));
+		if( parseInt($element.attr('rel')) != parseInt(JS_SELECTED_CAT) ) {
+			$element.removeClass('on');
+		}
+	}
+	
+	for(var i=0; i<(level+2); i++) {
+		if(i > level) {
+			console.log('i: ' + i);
+			var $sub_level = $('div#level-' + i);
+			if(show) {
+				console.log('show');
+				if($subCat = $sub_level.find('div#category-' + cat)) {
+					$subCat.show();	
+				}
+			}
+			else {
+				console.log('hide');
+				if($subCat = $sub_level.find('a.js-category.on')) {
+					ShowSubCategory($subCat, false);
+					$('div#category-' + cat).hide();
+				}
+			}
+		}
+	}
+	return true;
+	
+}

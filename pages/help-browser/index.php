@@ -9,8 +9,8 @@ define('PAGE_TITLE', 'Browser Upgrade | Dealshare.ie');
 define('PAGE_DESCRIPTION', 'Dealshare.ie | Upgrade your browser to take full advantage of the Dealshare.ie website.');
 //  -----------------------------------------------------
 //  SET PAGE AND NAV SELECTION
-$nav = 'about';
-$page = 'about';
+$nav = 'browser-help';
+$page = 'browser-help';
 //  -----------------------------------------------------
 ?>
 
@@ -66,7 +66,7 @@ $page = 'about';
 
         <div class="content-container clear">
             
-            <div class="content-wrapper ">
+            <div class="content-wrapper left span-12">
             	<?php include(DIR_TEMPLATES . '/temp_mobile_sidebar.php'); ?>
         		<div class="central-block">
                 	<?php 

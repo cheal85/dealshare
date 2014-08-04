@@ -1,5 +1,5 @@
 
-<div class="span-6 centre res " >
+<div class="span-5 centre res " >
 	<div class="padding-20 res ">
 
         <h2 class="color-5 text-centre span-12">Contact Dealshare</h2>

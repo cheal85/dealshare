@@ -126,7 +126,7 @@ class UserManager extends DataManager
 			$past = (time() - (60*60*24));  //  yesterday
 			setcookie('dealshare_user_id', '', $past, '/');
 			setcookie('dealshare_user_code', '', $past, '/');
-			$this -> Update($id, 'remember_me', '');
+			$this -> UpdateEntry($id, 'remember_me', '');
 		}
 		if(!$remove) {
 			//  create new cookie
@@ -136,7 +136,7 @@ class UserManager extends DataManager
 			setcookie('dealshare_user_id', $id, $three_months, '/');
 			setcookie('dealshare_user_code', $code, $three_months, '/');
 			//  add code to database
-			$this -> Update($id, 'remember_me', $code);
+			$this -> UpdateEntry($id, 'remember_me', $code);
 		}
 	}
 	//  ----------------------------------------------------------

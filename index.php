@@ -46,6 +46,7 @@ $page = 'homepage';
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
     <script type="text/javascript">var JS_THIS_PAGE	= '<?php echo $page; ?>';</script>
+    <script type="text/javascript">var JS_CATEGORY	= '<?php echo ($_GET['cat']? (int)$_GET['cat'] : ''); ?>';</script>
     <script type="text/javascript">var JS_AJAX	= true;</script>
     <script src="/java/jquery-1.8.0.min.js"></script>
     <script src="/java/vendor/modernizr-2.6.2.min.js"></script>
@@ -68,11 +69,11 @@ $page = 'homepage';
 			?>
         </div>
 
-        <div class="content-wrapper clear">
+        <div class="content-wrapper homepage-content clear">
             <?php 
 			echo '<div id="homepage">';
 				include(DIR_TEMPLATES . '/temp_mobile_sidebar.php');
-	            include(DIR_TEMPLATES . '/temp_header_browse.php'); 
+	            //include(DIR_TEMPLATES . '/temp_header_browse.php'); 
 				//  ----------------------------------------------------
 				//  Load in the first page of deals, but hide it.
 				//  this is purely for SEO

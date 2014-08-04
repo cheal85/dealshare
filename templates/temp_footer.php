@@ -15,6 +15,7 @@
                 <div class="left res span-3" >  
                 	<h2 class="clear color-6 left span-12 bold">help</h2> 
 	                <p><a class="color-6 " href="/help-browser/" title="Contact us" >upgrade your browser</a></p>
+	                <!-- <p><a class="color-6 " href="/help-upload/" title="Contact us" >image upload</a></p> -->
 	            </div> 
                 <div class="right res span-3 foot-icons" >  
 	                <a class="right" target="_blank" href="https://www.facebook.com/pages/Dealshareie/197027360483119" title="facebook" ><img src="/web_graphics/icons/icon-facebook.png" /></a>

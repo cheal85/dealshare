@@ -1,14 +1,15 @@
 <?php
 //	-----------------------------------------------
-define('ROUTE_TO_ROOT', $_SERVER['DOCUMENT_ROOT']);
-require_once(ROUTE_TO_ROOT . '/php_scripts/config.inc.php');
-require_once(INC_PATH_PHP . '/top.inc.php');
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once(ROOT . '/scripts/config.php');
+require_once(DIR_PHP . '/loader.php');
 //	-----------------------------------------------
 $isoLastModifiedSite = "";
 $newLine = "\n";
 $indent = " ";
 //	set root
-if (!$rootUrl) $rootUrl = WEB_ROOT;
+if (!$rootUrl) $rootUrl = SITE_ROOT;
 //	start headers
 $xmlHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>$newLine";
 $urlsetOpen = "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"
@@ -22,21 +23,21 @@ function makeUrlString ($urlString) {
     return htmlentities($urlString, ENT_QUOTES, 'UTF-8');
 }
 //	makes timestamp
-function makeIso8601TimeStamp ($dateTime) {
-    if (!$dateTime) {
-        $dateTime = date('Y-m-d H:i:s');
+function makeIso8601TimeStamp ($date_time) {
+    if (!$date_time) {
+        $date_time = date('Y-m-d H:i:s');
     }
-    if (is_numeric(substr($dateTime, 11, 1))) {
-        $isoTS = substr($dateTime, 0, 10) ."T"
-                 .substr($dateTime, 11, 8) ."+00:00";
+    if (is_numeric(substr($date_time, 11, 1))) {
+        $isoTS = substr($date_time, 0, 10) ."T"
+                 .substr($date_time, 11, 8) ."+00:00";
     }
     else {
-        $isoTS = substr($dateTime, 0, 10);
+        $isoTS = substr($date_time, 0, 10);
     }
     return $isoTS;
 }
 //	makes url tag
-function makeUrlTag ($url, $modifiedDateTime, $changeFrequency, $priority) {
+function makeUrlTag ($url, $modifieddate_time, $change_frequency, $priority) {
     GLOBAL $newLine;
     GLOBAL $indent;
     GLOBAL $isoLastModifiedSite;
@@ -58,14 +59,14 @@ function makeUrlTag ($url, $modifiedDateTime, $changeFrequency, $priority) {
 
     $urlTag = $urlOpen;
     $urlValue     = $locOpen .makeUrlString("$url") .$locClose;
-    if ($modifiedDateTime) {
-     $urlValue .= $lastmodOpen .makeIso8601TimeStamp($modifiedDateTime) .$lastmodClose;
+    if ($modifieddate_time) {
+     $urlValue .= $lastmodOpen .makeIso8601TimeStamp($modifieddate_time) .$lastmodClose;
      if (!$isoLastModifiedSite) { // last modification of web site
-         $isoLastModifiedSite = makeIso8601TimeStamp($modifiedDateTime);
+         $isoLastModifiedSite = makeIso8601TimeStamp($modifieddate_time);
      }
     }
-    if ($changeFrequency) {
-     $urlValue .= $changefreqOpen .$changeFrequency .$changefreqClose;
+    if ($change_frequency) {
+     $urlValue .= $changefreqOpen .$change_frequency .$changefreqClose;
     }
     if ($priority) {
      $urlValue .= $priorityOpen .$priority .$priorityClose;
@@ -75,86 +76,45 @@ function makeUrlTag ($url, $modifiedDateTime, $changeFrequency, $priority) {
     return $urlTag;
 }
 //	-------------------------------------------------------------------------
-//	add shop page
-$rootPages[] = array('id' => 0, 'lang' => 'en', 'slug' => 'catalogue', 'title' => 'Shop', 'last_modified' => date('Y-m-d H:i:s'));
-#$rootPages[] = array('id' => 0, 'lang' => 'en', 'slug' => 'catalogue', 'title' => 'Shop', 'last_modified' => date('Y-m-d H:i:s'));
+//	add deal pages
 //	-------------------------------------------------------------------------
-//	loop through
-for ($i=0; $i<count($rootPages); $i++)
-{
-	//	-------------------------------------------------------------------------
-	$rootSlug		= $rootPages[$i]['slug'];
-	$lang			= $rootPages[$i]['lang'];
-	$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/' . $rootSlug . '/', $rootPages[$i]['last_modified'], 'monthly', 1.0);
-	//	get sub pages
-	//	-------------------------------------------------------------------------
-	if($rootPages[$i]['slug'] == 'catalogue')
+$lang			= 'en';
+$urlsetValue 	.= makeUrlTag (SITE_ROOT . '/', $rootPages[$i]['last_modified'], 'monthly', 1.0);
+
+//  Get root catagories
+if($pages = $myDealManager -> GetAll()) {
+	#print 'test <br />';
+	$root = 'deal';
+	//  loop root categories
+	for($ii=0; $ii<count($pages); $ii++)
 	{
-		//  Get root catagories
-		$catPages = $myBoProductCatalog -> GetRootCategories();
+		$slug			= $pages[$ii]['url_safe'] . '/' . $pages[$ii]['hash'] . '/' . $pages[$ii]['id'] . '/'; 
+		$lang			= 'en';
 		
-		//  loop root categories
-		for($ii=0; $ii<count($catPages); $ii++)
-		{
-			$catSlug		= $catPages[$ii]['slug'] . '-c_' . $catPages[$ii]['id'] . '-'; //  slug construction
-			$lang			= $catPages[$ii]['lang'];
-			
-			//  Create page block info
-			$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/' . $rootSlug . '/' . $catSlug . '/', $rootPages[$i]['last_modified'], 'monthly', 1.0);
-			
-			//  Is Category a parent?
-			if($myBoProductCatalog -> IsParentCategory($catPages[$ii]['id']))
-			{
-				//  Get sub Categories
-				$catSubPages = $myBoProductCatalog -> GetCategorySubCategories($catPages[$ii]['id']);
-				
-				//  Loop Sub Categories
-				for($iii=0; $iii<count($catSubPages); $iii++)
-				{
-					$subCatSlug		= $catSubPages[$iii]['slug'] . '-c_' . $catSubPages[$iii]['id'] . '-'; // slug construction
-					$lang			= $catSubPages[$iii]['lang'];
-					//  Create page block info
-					$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/' . $rootSlug . '/' . $catSlug . '/' . $subCatSlug . '-' . $catSubPages[$iii]['slug'] . '/', $rootPages[$i]['last_modified'], 'monthly', 1.0);
-					
-					//  Get products for this category
-					$productPages = $myBoProductCatalog -> GetProductsByCategoryId($catSubPages[$iii]['id']);
-					
-					//  loop products
-					for($iiii=0; $iiii<count($productPages); $iiii++)
-					{
-						$productSlug	= $productPages[$iiii]['slug'] . '-p_' . $productPages[$iiii]['id'] . '-';
-						$lang			= $productPages[$iiii]['lang'];
-						//  Create page block info
-						$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/' . $rootSlug . '/' . $catSlug . '/' . $subCatSlug . '/' . $productSlug . '/', $rootPages[$i]['last_modified'], 'monthly', 1.0);
-					}
-				}
-			}
-			else
-			{
-				//  No sub category
-				//  Get products
-				$productPages = $myBoProductCatalog -> GetProductsByCategoryId($catPages[$ii]['id']);	
-					
-				//  loop products
-				for($iii=0; $iii<count($productPages); $iii++)
-				{
-					$productSlug	= $productPages[$iii]['slug'] . '-p_' . $productPages[$iii]['id'] . '-';
-					$lang			= $productPages[$iii]['lang'];
-					//  Create page block info
-					$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/' . $rootSlug . '/' . $catSlug . '/' . $productSlug . '/', $rootPages[$i]['last_modified'], 'monthly', 1.0);
-				}
-			}
-		}
+		//  Create page block info
+		$urlsetValue 	.= makeUrlTag (SITE_ROOT . '/' . $slug, date('Y-m-d H:i:s'), 'monthly', 1.0);
 	}
 }
-$rootPages[0]['last_modified'] = date('Y-m-d H:i:s');
+#print $urlsetValue;
+
+//
+if($pages = $myUserManager -> GetAll()) {
+	$root = 'user-deals';
+	//  loop root categories
+	for($ii=0; $ii<count($pages); $ii++)
+	{
+		$slug			= $root . '/' . $pages[$ii]['hash'] . '/' . $pages[$ii]['id'] . '/'; //  slug construction
+		$lang			= 'en';
+		
+		//  Create page block info
+		$urlsetValue 	.= makeUrlTag (SITE_ROOT . '/' . $slug, date('Y-m-d H:i:s'), 'monthly', 1.0);
+	}
+}
+#print $urlsetValue;
 //  HARDCODE SITE MAP
-$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/special/', $rootPages[0]['last_modified'], 'monthly', 1.0);
-$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/contact/', $rootPages[0]['last_modified'], 'monthly', 1.0);
-$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/legal/shipping_and_returns/', $rootPages[0]['last_modified'], 'monthly', 1.0);
-$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/legal/terms_and_conditions/', $rootPages[0]['last_modified'], 'monthly', 1.0);
-$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/legal/privacy_policy/', $rootPages[0]['last_modified'], 'monthly', 1.0);
-$urlsetValue 	.= makeUrlTag (WEB_ROOT . '/legal/disclaimer/', $rootPages[0]['last_modified'], 'monthly', 1.0);
+$urlsetValue 	.= makeUrlTag (SITE_ROOT . '/about/', date('Y-m-d H:i:s'), 'monthly', 1.0);
+$urlsetValue 	.= makeUrlTag (SITE_ROOT . '/contact/', date('Y-m-d H:i:s'), 'monthly', 1.0);
+$urlsetValue 	.= makeUrlTag (SITE_ROOT . '/help-browser/', date('Y-m-d H:i:s'), 'monthly', 1.0);
 
 //	-------------------------------------------------------------------------
 #if (!$isoLastModifiedSite) { // last modification of web site
@@ -166,4 +126,3 @@ $urlsetValue 	.= makeUrlTag (WEB_ROOT . '/legal/disclaimer/', $rootPages[0]['las
 header('Content-type: application/xml; charset="utf-8"',true);
 //	print code
 print "$xmlHeader $urlsetOpen $urlsetValue $urlsetClose";
-?>

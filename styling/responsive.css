@@ -368,10 +368,10 @@
             padding: 0 15px 0 15px;
          }
          .res.padding-20 {
-            padding: 5px;
+            padding: 10px;
          }
          .res.padding-10, .padding {
-            padding: 3px;
+            padding: 5px;
          }
          .res-des {
             display:none;
@@ -383,10 +383,10 @@
             display:inherit !important;
          }
          .res.padding-10 {
-            padding: 5px;
+            padding: 8px;
          }
          .res.padding-20 {
-            padding: 5px;
+            padding: 10px;
          }
          div.deal-thumbnail {
             min-height: 40px !important;
@@ -480,10 +480,10 @@
             padding: 0 15px 0 15px;
          }
          .res.padding-20 {
-            padding: 5px;
+            padding: 8px;
          }
          .res.padding-10, .padding {
-            padding: 3px;
+            padding: 5px;
          }
          .res-des {
             display:none;
@@ -498,7 +498,7 @@
             padding: 5px;
          }
          .res.padding-20 {
-            padding: 5px;
+            padding: 8px;
          }
          div.deal-thumbnail {
             min-height: 40px !important;
@@ -521,13 +521,25 @@
          /*******************************/
          /*   about page                */
          /*******************************/
-         div#about-page p {
-            font-size: 0.5em;
+         div#about-page {
+            font-size: 0.8em;
 
          }
-
-
-
+         div#panel-2 div#trans-1 {
+            top: 60px;
+         }
+         div#panel-1 {
+            height: 150px;
+         }
+         div#panel-2 div.about-container {
+            margin-top:0;
+         }
+         div#panel-3 div.about-container {
+            margin-top:0;
+         }
+         div#panel-4 div.about-container {
+            margin-top:0;
+         }
          /*******************************/
          /*   about page                */
          /*******************************/
