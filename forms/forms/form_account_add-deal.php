@@ -1,12 +1,12 @@
 <?php
 //  --------------------------------------------------
 //  ARRAY TO HOLD EXISITNG FORM DATA
-if(isset($_GET['did'])) {
-	$exists = true;
-	$tmp = format($myDealManager -> GetEntry($_GET['did']));
-	
-	
-	if(LOGGED_IN) {
+if(LOGGED_IN) {
+	if(isset($_GET['did'])) {
+		$exists = true;
+		$tmp = format($myDealManager -> GetEntry($_GET['did']));
+		
+		
 		if(($USER['id'] == $tmp['id_user']) || ($USER['user_type'] == 'admin')) {
 			$form = $tmp;
 			$deal_type = $form['deal_type'];
@@ -15,9 +15,9 @@ if(isset($_GET['did'])) {
 			echo '<div class="error-panel "><p>You do not have permission to edit this deal</p></div>';
 		}
 	}
-}
-else {
-	$deal_type = 'voucher_code';
+	else {
+		$deal_type = 'voucher_code';
+	}
 }
 //  -------------------------------------------------
 //  Create Category Array
@@ -27,7 +27,7 @@ $arr_type = array(
 				array('label' => 'Freebie', 'value' => 'freebie')
 				);
 if(1) {
-	echo '<h2 class="color-2">Amend Deal Details</h2>';
+	echo '<h2 class="color-2">Share a Deal</h2>';
 	//  --------------------------------------------------
 	//  SIGNUP FORM
 	echo '<form id="form-deal-add" class="js-deal-form" method="post">';

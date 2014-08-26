@@ -46,6 +46,7 @@ $page = 'homepage';
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <script type="text/javascript">var JS_ROOT	= '<?php echo SITE_ROOT; ?>';</script>
     <script type="text/javascript">var JS_THIS_PAGE	= '<?php echo $page; ?>';</script>
+    <script type="text/javascript">var JS_SHOW_PRIZE	= <?php echo $show_prize; ?>;</script>
     <script type="text/javascript">var JS_CATEGORY	= '<?php echo ($_GET['cat']? (int)$_GET['cat'] : ''); ?>';</script>
     <script type="text/javascript">var JS_AJAX	= true;</script>
     <script src="/java/jquery-1.8.0.min.js"></script>
@@ -72,13 +73,11 @@ $page = 'homepage';
         <div class="content-wrapper homepage-content clear">
             <?php 
 			echo '<div id="homepage">';
+				//  ----------------------------------------------------
+				//  sidebar for mobile devices
 				include(DIR_TEMPLATES . '/temp_mobile_sidebar.php');
-	            //include(DIR_TEMPLATES . '/temp_header_browse.php'); 
 				//  ----------------------------------------------------
-				//  Load in the first page of deals, but hide it.
-				//  this is purely for SEO
-				#include(DIR_TEMPLATES . '/temp_seo_deals.php');
-				//  ----------------------------------------------------
+				//  content container
 				include(DIR_TEMPLATES . '/temp_content_deals.php');
 			echo '</div>';
 			?>
@@ -88,7 +87,7 @@ $page = 'homepage';
             <?php include(DIR_TEMPLATES . '/temp_footer.php'); ?>
             <img src="<?php echo '/web_graphics/logo-HD.jpg'; ?>" style="display:none;" />
         </div>
-        <div id="back-top">
+        <div id="back-top" style="display: none;">
           <a href="/#top" ><img src="/web_graphics/icons/icon-back-to-top.png" style="width:100%;" /></a>
          </div>
     </body>

@@ -15,29 +15,32 @@ $(document).ready(function(){
 		a.preventDefault();
 		var LinkData = $(this).attr('rel');
 		var dataArray = LinkData.split(':::');
+		var target = dataArray[0];
 		
 		
 		OpenLightbox();
-		var $contentHolder	= $("div.lightbox-content");
+		var $contentHolder	= $("div.modal-content");
 		//alert('open');
-		$.post('/scripts/ajaxProcessing/lightbox.php', {	'submitCheck':1,
+		$.post('/scripts/processing/ajax.lightbox.php', {	'submit':1,
 															'target':target,
 															'data_array':dataArray
 															},  function(data)
 		{
-			//alert(data['markup']);
-			$contentHolder.html(data['markup']);
+			//alert(data['html']);
+			$contentHolder.html(data['html']);
 		},
 		"json"
 		);
+		
 		return false;
-	
 	});
 	
 	
 	$("a#close-lightbox").live('click', function()
 	{
 		CloseLightbox();
+		
+		return false;
 	});
 	
 });
@@ -95,7 +98,7 @@ function PositionLightbox()
 {
 	var width = $("div#modal").width();
 	var bWidth = $("body").width();
-	var bHeight = $("body").height();
+	var bHeight = $("body").height();	
 	
 	var top = window.pageYOffset+100;
 	

@@ -8,6 +8,7 @@ RewriteRule ^/?$ "http\:\/\/dealshare\.ie\/" [R=301,L]
 RewriteCond %{HTTP_HOST} ^80\.93.\.17\.155
 RewriteRule (.*) http://www.yourdomain.com/$1 [R=301,L]
 #	signup
+
 RewriteRule ^account/add-deal/?(.*)$ pages/account/add-deal/$1/ [L,QSA]
 RewriteRule ^account/edit-profile/?(.*)$ pages/account/edit-profile/$1/ [L,QSA]
 RewriteRule ^account/activation/?(.*)$ pages/account/activation/?page-type=account-activation&url=$1 [L,QSA]
@@ -19,6 +20,7 @@ RewriteRule ^about/?(.*)$ pages/about/$1/ [L,QSA]
 RewriteRule ^contact/?(.*)$ pages/contact/$1/ [L,QSA]
 RewriteRule ^help-browser/?(.*)$ pages/help-browser/$1/ [L,QSA]
 RewriteRule ^help-upload/?(.*)$ pages/help-upload/$1/ [L,QSA]
+RewriteRule ^un-subscribe/?(.*)$ pages/un-subscribe/$1/ [L,QSA]
 
 
 

@@ -89,7 +89,7 @@ class DbManager
 	{
 		$result = mysqli_query($this->dbConnect, $q);
 		
-		return	($result !== false ? $result : false);
+		return	$result;
 	}
 	
 	public function debug($msg)

@@ -46,7 +46,7 @@ if($authenticated) {
 		$myDbManager -> debug('deals got');
 		//  ----------------------------------------------
 		//  Format data before sending it back
-		ob_clean();		
+		#ob_clean();		
 		for($i=0; $i<count($deals); $i++) {
 			$data = format($deals[$i]);
 			//  Create markup

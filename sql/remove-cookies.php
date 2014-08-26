@@ -9,5 +9,6 @@ setcookie('dealshare_member', '', $past, '/');
 setcookie('dealshare_user_code', '', $past, '/');
 setcookie('dealshare_user_id', '', $past, '/');
 setcookie('dealshare_allow_cookies', '', $past, '/');
+setcookie('dealshare_prize', '', $past, '/');
 
 ?>

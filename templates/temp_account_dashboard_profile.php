@@ -6,7 +6,7 @@
         echo '<div class="sep-10">&nbsp;</div>';
         if($USER['image'] = format($myImageManager -> GetImage($USER['id_image'], 'medium'))) {
 			echo  '<div class="clear left span-12" >';
-				echo  '<div class="user-profile-image centre " >';
+				echo  '<div class="user-image centre " >';
 					echo '<img class="content left ' . $USER['image']['orientation'] . '" src="' . $USER['image']['full_path'] . '" >';
 				echo  '</div>';	
 				//

@@ -1,12 +1,17 @@
 //  -------------------------------------
 //  CUSTOM FUNCTIONALITY
 //  -------------------------------------
-
+//  datepicker
+$(function() {
+    $( ".datepicker" ).datepicker({
+		dateFormat: 'dd.mm.yy'
+	});
+  });
 //  -------------------------------------
 //  cookiebar
 $("a.js-dismiss-cookie-bar").live('click', function()
 {
-	alert('post');
+	//alert('post');
 	$('div#cookie-bar').remove();
 	//
 	$.post('/scripts/processing/ajax.agree-to-cookies.php', {}, function(data)

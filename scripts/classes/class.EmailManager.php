@@ -11,15 +11,13 @@ class MailManager extends PHPMailer
     var $Sender = null;
 	var $SendMail = false;
  
-    function OldEmail($arr)
-    {
-    }
+
 	
 	#protected $send 	= false;
 	
     public function __construct()
     {
-		$this -> SendMail = SEND_MAIL;
+		$this -> SendMail = SEND_EMAIL;
 	}
 			
 	protected function SetSubject($string) {
@@ -27,16 +25,18 @@ class MailManager extends PHPMailer
 	}
 	
 	protected function BuildContent($template, $dataArray) {
-		echo 'In Build Content<br />';
 		//  ---------------------------------
 		$body = '';
 		include(DIR_TEMPLATES . '/email/' . $template);
-		echo 'after template <br />';
+		//
+		ob_start();
+		include(DIR_TEMPLATES . '/email/temp_email_wrapper.php');
+		$wrapper = ob_get_contents();
+		ob_end_clean();
+		$html = str_replace('EMAIL_CONTENT', $body, $wrapper);
 		$this->IsHTML(true);
-		echo 'after html <br />';
-		$this->MsgHTML($body);
-		echo 'after body <br />';
-		return $body;
+		$this->MsgHTML($html);
+		return $html;
 	}
 	protected function Config() {
 		
@@ -85,6 +85,7 @@ class MailManager extends PHPMailer
         $this -> FromName = EMAIL_NAME;
         $this -> Sender = EMAIL_ADDRESS;
 		$email_html = $this -> BuildContent($template, $arr);
+		echo 'email test';
 		if(ONLINE) {
 	  		if(!$this->SendEmail()) {
 	  		    $success = false;

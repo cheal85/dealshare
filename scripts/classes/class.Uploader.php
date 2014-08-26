@@ -87,56 +87,50 @@ class qqFileUploader {
     function handleUpload($uploadDirectory, $replaceOldFile = FALSE){
 		#$GLOBALS['GDBMANAGER'] -> debug('exists: ' . file_exists($uploadDirectory));
         if (!is_writable($uploadDirectory)){
-            return array('error' => "Server error. Upload directory isn't writable.");
+            return array('error' => "Server error. Upload directory is not writable");
         }
         
         if (!$this->file){
-            return array('error' => 'No files were uploaded.');
+            return array('error' => 'Image upload failed, please re-load and try again');
         }
         
         $size = $this->file->getSize();
         
         if ($size == 0) {
-            return array('error' => 'File is empty');
+            return array('error' => 'The requested image is empty');
         }
         
         if ($size > $this->sizeLimit) {
-            return array('error' => 'File is too large');
+            return array('error' => 'The requested image is too large');
         }
         $pathinfo 	= pathinfo($this->file->getName());
-		//	edited by AD - added md5 hash
-#		$hash		= md5(mktime());
 		//  --------------------------------------------
 		//  CREATE FRIENDLY FILENAME
-		$filename = generate_hash(16);
+		$filename = $pathinfo['filename'];
+		$title = $pathinfo['filename'];
         $ext = $pathinfo['extension'];
 
         if($this->allowedExtensions && !in_array(strtolower($ext), $this->allowedExtensions)){
             $these = implode(', ', $this->allowedExtensions);
-            return array('error' => 'File has an invalid extension, it should be one of ' . $these . '.');
+            return array('error' => 'Image upload because the file type is unrecognized');
         }
         
         if(!$replaceOldFile){
             /// don't overwrite previous files that were uploaded
             while (file_exists($uploadDirectory . $filename . '.' . $ext)) {
-                $filename .= rand(10, 99);
+                $filename .= '-' . rand(3, 99);
             }
         }
-		#$GLOBALS['GDBMANAGER'] -> ExeQuery("INSERT INTO debug (msg) VALUES ('path :" . $uploadDirectory . $filename . '.' . $ext . "')", MYSQL_ASSOC);      
-		//  --------------------------------------------------
-		#$GLOBALS['GDBMANAGER'] -> debug('size: ' . $imageData[0] . $imageData[1]);
         if ($this->file->save($uploadDirectory . $filename . '.' . $ext)){
-			//	edited by AD - added extra parameters to return for db
             return array(
 						 'filename'		=> $filename . '.' . $ext,
-						 'title'		=> '',
+						 'title'		=> $title,
 						 'ext'			=> $ext,
 						 'success'		=> true
 						 );
         } 
 		else {
-            return array('error'=> 'Could not save uploaded file.' .
-                'The upload was cancelled, or server error encountered');
+            return array('error'=> 'The requested image could not be uploaded');
         }
         
     }    

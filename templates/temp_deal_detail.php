@@ -11,11 +11,9 @@
 					echo '<div id="view-deal" class="padding-10" >';
 					  	//  --------------------------------------------------------------------------------
 						//  TITLE
-						echo '<div class="left paddin-10 " >';
-							//  DEAL TITLE
-							echo '<h2 class=" span-12 centre">' . $data['title'] . '</h2>';
-						echo '</div>';
+						echo '<h2 class=" span-10 res centre text-centre">' . $data['title'] . '</h2>';
 						//  --------------------------------------------------------------------------------
+						echo '<div class="sep-20 left">&nbsp;</div>';
 						echo '<div class="left span-12 clear" >';
 							echo '<div class="padding-10" >';
 								//  --------------------------------------------------------------------------------
@@ -72,74 +70,66 @@
 										// 
 									echo '</div>';
 								echo '</div>';
-								//  --------------------------------------------------------------------------------
-								//  SHARED BY DETAILS
-								echo '<div class="left span-4 res " >';
-									echo  '<div class="item-author clear left span-12 top-20" >';
-										//
-										echo  '<div class="padding-5 left" >';
-											echo  '<div class="user-image clear left" >';
-												echo '<img class="content centre ' . $user['image']['orientation'] . '" src="' . $user['image']['path'] . 'tiny/' . $user['image']['filename'] . '" >';
-											echo  '</div>';
-										echo  '</div>';	
-										//
-										echo  '<div class="padding-10 left" >';
-											if($user['user_type']  == 'user') {
-												echo  '<p class="medium" >shared by <a href="/user-deals/' . $user['hash'] . '/' . $user['id'] . '/">' . $user['name'] . '</a><br />';
-											}
-											else {
-												echo  '<p class="medium" >shared by ' . ucfirst($user['user_type']) . '<br />';
-											}
-											echo  '<span class="small left" >' . $data['nice_date'] . '</span></p>';
-										echo  '</div>';
-										//
-										if($USER['user_type'] != 'guest') {
-											if(($USER['id'] == $data['id_user']) || ($USER['user_type'] == 'admin')) {
-												echo  '<div class="padding-3 right" >';
-													echo  '<p class="medium padding-5" ><a href="/account/add-deal?did=' . $data['id'] . '&hash=' . $data['hash'] . '">Edit</a></p>';
-												echo  '</div>';
-											}
-										}
-									echo '</div>';
-								echo '</div>';
-								//
 							echo '</div>';
+							//  --------------------------------------------------------------------------------
+							//  SHARED BY DETAILS
+							echo '<div class="left span-4 res " >';
+								echo  '<div class="item-author clear left span-12 top-20" >';
+									//
+									echo  '<div class="padding-5 left" >';
+										echo  '<div class="user-profile-image clear left" >';
+											echo '<img class="content centre ' . $user['image']['orientation'] . '" src="' . $user['image']['path'] . 'tiny/' . $user['image']['filename'] . '" >';
+										echo  '</div>';
+									echo  '</div>';	
+									//
+									echo  '<div class="padding-10 left" >';
+										if($user['user_type']  == 'user') {
+											echo  '<p class="medium" >shared by <a href="/user-deals/' . $user['hash'] . '/' . $user['id'] . '/">' . $user['name'] . '</a><br />';
+										}
+										else {
+											echo  '<p class="medium" >shared by <span class="bold" >dealshare</span><br />';
+										}
+										echo  '<span class="small left" >' . $data['nice_date'] . '</span></p>';
+									echo  '</div>';
+									//
+									if($USER['user_type'] != 'guest') {
+										if(($USER['id'] == $data['id_user']) || ($USER['user_type'] == 'admin')) {
+											echo  '<div class="padding-3 right" >';
+												echo  '<p class="medium padding-5" ><a href="/account/add-deal?did=' . $data['id'] . '&hash=' . $data['hash'] . '">Edit</a></p>';
+											echo  '</div>';
+										}
+									}
+								echo '</div>';
+							echo '</div>';
+								//
 						echo '</div>';
 						//  --------------------------------------------------
 					echo '</div>';
 				echo '</div>';
 				echo '<div class="sep-20 left">&nbsp;</div>';
 			
-				if($comments = $myCommentManager -> GetEntries('all', array('id_deal' => $data['id']))) {
-					echo '<div class="span-12 clear left " >';
-						echo '<div class="padding-20 res">';
-							
-							//  --------------------------------------------------
-							//  COMMENT FORM
-							$count = '1';
-							if(LOGGED_IN) {
-								echo '<h3 class="color-2 icon-comment">Comment <span class="res-des res-tab" >on this Deal</span></h3>';
-								include(DIR_FORMS . '/form_comment_add.php');
-							}
-							else {
-								echo '<h3 class="color-2 icon-comment">Comments</h3>';
-							}
-							//  --------------------------------------------------
-							include(DIR_TEMPLATES . '/temp_view_comments_full.php');
-						echo '</div>';
-					echo '</div>';
-				}
-				else {
-					if(LOGGED_IN) {
-					echo '<div class="span-12 clear left " >';
-						echo '<div class="padding-20 res">';
-							$count = 1;
-							echo '<h3 class="color-2 icon-comment">Comment on this Deal</h3>';
+				echo '<div class="span-12 clear left " >';
+					echo '<div class="padding-20 res">';
+						
+						//  --------------------------------------------------
+						//  COMMENT FORM
+						$count = '1';
+						if(LOGGED_IN) {
+							echo '<h3 class=" icon-comment">Comment</h3>';
 							include(DIR_FORMS . '/form_comment_add.php');
-						echo '</div>';
+						}
+						//
+						if($comments = $myCommentManager -> GetEntries('all', array('id_deal' => $data['id']))) {
+							echo '<h3 class="color-2 icon-comment">Comments</h3>';
+							include(DIR_TEMPLATES . '/temp_view_comments_full.php');
+						}
+						else {
+							
+						}
+						//  --------------------------------------------------
+						
 					echo '</div>';
-					}
-				}
+				echo '</div>';
 				// --------------------------------------------
 				//  Record View
 				$myDealManager -> Increment($data['id'], 'meta_views');

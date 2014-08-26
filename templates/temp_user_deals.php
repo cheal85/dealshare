@@ -11,7 +11,7 @@
 				
 					echo '<div class="sep-10 ">&nbsp;</div>';
 					echo  '<div class="left span-3 res" >';
-						echo  '<div class="user-profile-image centre" >';
+						echo  '<div class="user-image centre" >';
 							echo '<img class="content centre ' . $user['image']['orientation'] . '" src="' . $user['image']['full_path'] . '" >';
 						echo  '</div>';
 						echo '<h3 class="clear text-centre">' . reputation($user) . '</h3>';

@@ -8,7 +8,7 @@
          
          <div class="centre clear" style="width:99%;">  
          	<h2 class="color-5 text-centre span-12">Latest Deals</h2>
-            <div class=" deal-holder">
+            <div class=" deal-holder span-12 res centre">
                 <?php  
                 $options = array('user' => $USER['id']);
                 

@@ -41,7 +41,7 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	}
 	//  --------------------------------------------------
 	//  PRODUCT IMAGE
-	echo  '<div class="item-image clear back-color-3">';
+	echo  '<div class="item-image left clear back-color-3">';
 	//  --------------------------------------------------
 	//  Test if user has already voted
 	$voted = false;	
@@ -71,6 +71,24 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 	echo  '</div>';	
 	//  --------------------------------------------------
 		echo '<a class="" href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" title="View this Deal" ><img id="deal-image-' . $data['id'] . '"class="' . $data['image']['orientation'] . ' image-item" src="' . $data['image']['path'] . 'medium/' . $data['image']['filename'] . '" alt="Product Image for deal: ' . $data['title'] . '" /></a>';
+	//  --------------------------------------------------
+	//  expiry date
+	if($data['date_expiry']) {
+		$expiry = TimeToStr($data['date_expiry']);
+		//
+		echo '<div class="expiry" title="this deal will expire in about ' . $expiry . '" >';
+			echo '<div class="padding-5" >';
+				echo '<div class="clock-icon" >';
+					echo '<img class="img-fit" src="/web_graphics/icons/clock.png" />';
+				echo '</div>';
+				//
+				echo '<div class="back-color-8 expiry-text" >';
+					echo '<img  src="/web_graphics/icons/left-arrow.png"  >';
+					echo '<p class="color-6 " >' . $expiry . '</p>';
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
+	}
 	echo  '</div>';
 	//echo  '<img class="shine clear" src="/web_graphics/shine.png" >';
 	//  --------------------------------------------------
@@ -106,7 +124,7 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 			  						echo '<p class="small" >by <a href="/user-deals/' . $user['hash'] . '/' . $user['id'] . '/">' . short($user['name'], 19) . '</a><br />';
 			  					}
 			  					else {
-			  						echo '<p class="small" >by ' . ucfirst($user['user_type']) . '<br />';
+			  						echo '<p class="small" >by <span class="bold" >dealshare</span><br />';
 			  					}
 			  					echo '<span class="tiny" >' . $data['nice_date'] . '</span></p>';
 			  				echo '</div>';
@@ -114,6 +132,7 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 					echo '</div>';
 				echo '</div>';
 		//  --------------------------------------------------
+		/*
 		echo '<div class="item-stats span-12 clear left back-color-2" >';
 			  //  -----------------------------------
 			  //  Votes
@@ -138,6 +157,15 @@ echo '<div id="deal-' . $data['id'] . '" class="item ">';
 			  echo '</div>';	
 			  //  -----------------------------------
 		echo '</div>';
+		*/
+		/*
+		echo '<div class="span-12 clear left back-color-2" >';
+			  //  -----------------------------------
+			  //  Votes
+			  echo '<p class="span-12 text-centre " ><a href="/deal/' . $data['url_safe'] . '/' . $data['hash'] . '/' . $data['id'] . '/" class="color-6" title="View this deal">View</a></p>';
+			  //  -----------------------------------
+		echo '</div>';
+		*/
 	echo  '</div>';
 	//  --------------------------------------------------
 echo  '</div>';

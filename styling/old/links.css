@@ -7,7 +7,7 @@
    ========================================================================== */
 
 a {
-	color: #42bb9c;
+	color: #00d2a3;
 	text-decoration: none;
 	font-size: 1.0em;
 }
@@ -78,7 +78,7 @@ ul.nav li a.on {
 }
 
 a.icon-vote {
-	background: #42bb9c url('/web_graphics/icons/vote-icon.png') center center no-repeat;
+	background: #00d2a3 url('/web_graphics/icons/vote-icon.png') center center no-repeat;
 }
 a.icon-modal-vote {
 	display:block;
@@ -90,7 +90,7 @@ a.icon-modal-vote {
 }
 a.icon-modal-vote:hover {
 	opacity:1;
-	border-bottom: #42bb9c 1px dotted;
+	border-bottom: #00d2a3 1px dotted;
 	padding-bottom: 0px;
 }
 a.icon-vote-small {
@@ -100,13 +100,13 @@ a.icon-vote-small {
 	height: 14px;
 	color: #fff;
 	text-align: right;
-	background: #42bb9c;
+	background: #00d2a3;
 	padding: 0 8px 0 5px;
 	border-right: #fff 2px solid;
 }
 
 a.icon-share {
-	background: #42bb9c url('/web_graphics/icons/share-icon.png') center center no-repeat;
+	background: #00d2a3 url('/web_graphics/icons/share-icon.png') center center no-repeat;
 }
 a.icon-modal-share {
 	display:block;
@@ -118,7 +118,7 @@ a.icon-modal-share {
 }
 a.icon-modal-share:hover {
 	opacity:1;
-	border-bottom: #42bb9c 1px dotted;
+	border-bottom: #00d2a3 1px dotted;
 	padding-bottom: 0px;
 }
 a.icon-share-small {
@@ -128,7 +128,7 @@ a.icon-share-small {
 	height: 14px;
 	color: #fff;
 	text-align: right;
-	background: #42bb9c;
+	background: #00d2a3;
 	padding: 0 8px 0 5px;
 	border-right: #fff 2px solid;
 }
@@ -139,7 +139,7 @@ a.icon-views-small {
 	height: 14px;
 	color: #fff;
 	text-align: right;
-	background: #42bb9c;
+	background: #00d2a3;
 	padding: 0 10px 0 5px;
 }
 

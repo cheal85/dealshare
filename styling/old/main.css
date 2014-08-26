@@ -137,7 +137,7 @@ div.item .item-price {
 	width: auto;
 	min-width: 40px;
 	height: 25px;
-	background: #42bb9c;
+	background: #00d2a3;
 }
 div.item .item-price p {
 	color: #fff;
@@ -192,7 +192,7 @@ div.item-stats {
 	height: 14px;
 	width: 200px;
 	padding: 4px 0 4px 0;
-	background: #42bb9c;
+	background: #00d2a3;
 }
 div.item-stats a span {
 	display:block;
@@ -371,7 +371,7 @@ img.content.landscape {
  	background: #fff;
  }
  li.account-menu-item.on a {
- 	color: #42bb9c;
+ 	color: #00d2a3;
  }
  li.account-menu-item a {
  	line-height: 45px;
@@ -432,7 +432,7 @@ div.load-more h4 a{
 	font-weight: bold;
 }
 div.load-more h4 a:hover {
-	color: #42bb9c;
+	color: #00d2a3;
 }
 div.content-preview {
 	max-height:100px;
@@ -449,7 +449,7 @@ div.foot-partners a:hover{
 	padding-bottom: 1px;
 }
 div.foot-partners a:hover{
-	border-bottom: 1px dotted #42bb9c;
+	border-bottom: 1px dotted #00d2a3;
 }
 div.foot-icons a{
 	width:36px; 

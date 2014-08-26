@@ -69,18 +69,21 @@ if(!$ALLOW_COOKIES) { //  if message has not already been dismissed
 				//
 				echo '<div class="right padding-5" >';
 				echo '<p class="clear right ">Welcome, <a href="/account/" title="view your account" >' . $USER['name'] . '</a></p>';
-				echo '<p class="clear right "><a class="text-small" href="/scripts/processing/logout.php" title="logout of your account" >logout</a></p>';
+				echo '<p class="clear right ">';
+				if($USER['user_type'] == 'admin') echo '<a href="/admin-ds/" title="Go to Admin">admin</a> | ';
+				echo '<a class="text-small" href="/scripts/processing/logout.php" title="logout of your account" >logout</a>';
+				echo '</p>';
 				echo '</div>';
 			}
 			else {
 				echo '<div class="padding-5 right" >';
-					echo '<div class="user-image" ><a class="modal js-login" href="javascript:;" title="login to your account" >';
+					echo '<div class="user-image" ><a class="modal " href="/account/login/" title="login to your account" >';
 					echo '<img src="/web_graphics/placeholder-1-grey-small.jpg" class="content portrait" />';
 					echo '</a></div>';
 				echo '</div>';
 				//
 				echo '<div class="right padding-10" >';
-					echo '<p class="clear right "><a class="modal js-login" href="javascript:;" title="login to your account" >login</a></p>';
+					echo '<p class="clear right "><a class="modal " href="/account/login/" title="login to your account" >login</a></p>';
 				echo '</div>';
 			}
 		echo '</div>';
@@ -108,9 +111,9 @@ echo '<div class="sub-header back-color-4 clear span-12 ">';
 				}
 				else {
 					echo '<div class="right span-12 header-button-wrapper">';
-						echo '<a class="signup-link span-12 button button-header button-signup color-3 right js-tooltip-target" href="javascript:;" title="Sign up for an account" >Start  Sharing</a>';
+						echo '<a class="span-12 button button-header button-signup color-3 right js-tooltip-target" href="/account/login/" title="Sign up for an account" >Start  Sharing</a>';
 					echo '</div>';
-					echo '<p id="tooltip-signup" class="tooltip-content-holder absolute" >Sign up today to start sharing!</p>';
+					if( !IS_MEMBER ) echo '<p id="tooltip-signup" class="tooltip-content-holder absolute" >Sign up today to start sharing!</p>';
 				}
 				echo '</div>';
         echo '</div>';

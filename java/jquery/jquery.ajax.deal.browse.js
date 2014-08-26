@@ -8,6 +8,13 @@ var JS_COUNT = (Math.floor(((JS_WIDTH - 40) / 220))*4);
 if(JS_COUNT < 12) JS_COUNT = 12;
 var LOAD_MORE = false;
 //  -------------------------------------------
+//  display prize modal
+if (typeof JS_SHOW_PRIZE != 'undefined') {
+	if(JS_SHOW_PRIZE) {
+		ShowPrize();
+	}
+}
+//  -------------------------------------------
 //  category selection
 $('a.js-category').live('click', function() {
 	var id = $(this).attr('rel');
@@ -76,24 +83,30 @@ if (typeof JS_THIS_PAGE != 'undefined') {
 	//  PROCESS SIGNUP DETAILS
 	function GetDeals()
 	{
-		var $container = $('div#browse-deals');
-		LoadMore($container, 'hide');
-		var search_term = $('input#search').val();
-		var requestPage = JS_PAGE;
-		var $holder = $('div#deals');
-		var category = JS_CATEGORY;
 		//  ---------------------------------------
-		//  Show loading
-		Loading($container, 'show');
-		//  ---------------------------------------
-		if(JS_MORE == true) {
+		if(JS_MORE == true) {		
+			//  ---------------------------------------
+			//  prevent the loading of further content
+			JS_MORE = false;
+			//  ---------------------------------------
+			//  assign values
+			var $container = $('div#browse-deals');
+			var search_term = $('input#search').val();
+			var requestPage = JS_PAGE;
+			var $holder = $('div#deals');
+			var category = JS_CATEGORY;
+			LoadMore($container, 'hide');
+			//  ---------------------------------------
+			//  Show loading
+			Loading($container, 'show');
+			//  increase page
 			JS_PAGE++;
 			//  ---------------------------------------
+			//  set script location
 			var script ='/scripts/processing/ajax.deal.browse.php';
-			//  ---------------------------------------
-			JS_MORE = false;
+
 			//alert(JS_CATEGORY);
-			//alert(search_term);
+			//alert('browse');
 			$.post(script, {'page':requestPage, 'count':JS_COUNT, 'category': category, 'search': search_term, 'submit': true}, function(data)
 			{
 				console.log('back');
@@ -103,7 +116,7 @@ if (typeof JS_THIS_PAGE != 'undefined') {
 					var JS_CONTENT = data['array'];
 					
 					var html = data['html'];
-					//console.log(html);
+					console.log(html);
 						
 					$holder.append(html);
 					JS_MORE = true;
@@ -197,7 +210,7 @@ if (typeof JS_THIS_PAGE != 'undefined') {
 		return false;
 	});
 	//  ----------------------------------------------
-	
+	/*
 	//  ----------------------------------------------
 	//  VOTE UP DEALS
 	$('a.js-modal-vote').live('click', function()
@@ -226,9 +239,26 @@ if (typeof JS_THIS_PAGE != 'undefined') {
 		);
 		return false;
 	});
+	*/
 	
 //  -------------------------------------------
 //  Authored by Cathal Healy
 //  For Dealshare.ie
 //  -------------------------------------------
 });
+
+function ShowPrize() {
+	var prize_markup = '';
+		
+	prize_markup += '<div style="width: 400px; height: 300px;" >';
+	prize_markup += '<a href="/account/login/" ><img src="/web_graphics/prize-test.jpg" /></a>';
+	prize_markup += '</div>';
+	
+	OpenLightbox();
+	var $contentHolder	= $("div.modal-content");
+	
+	$contentHolder.html(prize_markup);
+	PositionLightbox();
+	
+	
+}

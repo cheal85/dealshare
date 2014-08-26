@@ -44,42 +44,14 @@ class DealManager extends DataManager
 		//  deal category - not yet implemented
 		//  this will pass through a totally different
 		//  database query
-		$GLOBALS['myDbManager'] -> debug('BEFORE CATEGORY');
-		$GLOBALS['myDbManager'] -> debug('CATEGORY: ' . $BROWSE_DATA['category']);
 		if(isset($BROWSE_DATA['category']) && ($BROWSE_DATA['category'] != '')) {
-			$GLOBALS['myDbManager'] -> debug('PAGE: ' . $PAGE);
-			$GLOBALS['myDbManager'] -> debug('CATEGORY: ' . $BROWSE_DATA['category']);
 			//  search  query
 			//  get all ids for this category and it's sub categories
 			$cats = $GLOBALS['myCategoryManager'] -> GetCategoriesAndSubs($BROWSE_DATA['category']);
-			/*
-			$string = "";
-			for($i=0; $i<count($cats); $i++) {
-				if($string != "") $string .= ", ";
-				$string .= "'" . $cats[$i] . "'";
-			}
-			*/
-			$deals = $GLOBALS['myCategoryManager'] -> GetDealsFromInterface($cats);
 			//
-			//
-			$where .= " AND id IN (" . $deals . ") ";
+			$where .= " AND id_category IN (" . $cats . ") ";
 			$GLOBALS['myDbManager'] -> debug('WHERE: ' . $where);
-			/*
-			if(isset($BROWSE_DATA['search']) && ($BROWSE_DATA['search'] != '')) {
-				$where .= "AND (d.title LIKE '%" . sanitize_db($BROWSE_DATA['search']) . "%') ";
-			}
-			//
-			$cat = sanitize_db($BROWSE_DATA['category']);
-			
-			$q = 	"SELECT i.id_deal, d.*" . 
-					"FROM interface_categories_deals i 
-					JOIN LEFT data_deals d
-					ON i.id_deal = d.id 
-					WHERE (i.id = '" . $cat . "' OR 
-					$where . 
-					"ORDER BY d.date_added DESC " .
-					$limit;	
-					*/
+
 		}
 		//  page and limit query contruction
 		if($page !== false)

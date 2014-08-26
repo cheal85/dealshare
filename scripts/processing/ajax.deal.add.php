@@ -35,7 +35,7 @@ $authenticated = true;
 	if($post['id']) {  //  if existing content
 		if($user = format($myDealManager -> GetEntry($post['id']))) {
 			$db_secret = $user['hash_secret'];
-			$post_secret = $post['hash'];
+			$post_secret = $post['hash_secret'];
 			//  hash secrets do not match
 			if($db_secret != $post_secret) $authenticated = false;
 		}
@@ -60,8 +60,6 @@ if($authenticated) {
 	//  define elements of form that will not
 	//  be added to the database
 	$ignore = array('id', 'redirect', 'submit' );
-	//  Copy link to raw_link field
-	$post['raw_link'] = $post['link'];
 	//  -----------------------------------------
 	//  test if we have a merchant
 	if($post['id_merchant'] != '') {
@@ -106,12 +104,16 @@ if($authenticated) {
 		$myDbManager -> debug('title: ' . $post['title']);
 		//  create url safe version of title
 		$post['url_safe'] = sanitize_url(substr($post['title'], 0, 50));
-		$json_array['message'] = 'Your Deal has been successfully added to Dealshare.ie';
+		$json_array['message'] = 'Your Deal has been successfully added to dealshare.ie';
 	}
 	//  ----------------------------------------
 	//  Process information
 	if(!$post['id_image']) {
 		$post['id_image'] = '2';	
+	}
+	//  ----------------------------------------
+	if( $post['date_expiry'] ) {
+		$post['date_expiry'] = reformat_date( $post['date_expiry'] );
 	}
 	//  ----------------------------------------
 	if(!$post['id_user']) {

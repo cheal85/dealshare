@@ -27,7 +27,7 @@ else {
 		error_reporting(E_ALL ^ E_NOTICE);
 	}
 	else {
-		error_reporting(0);
+		#error_reporting(0);
 	}
 	define('SEND_EMAIL', false);
 }

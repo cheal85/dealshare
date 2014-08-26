@@ -174,6 +174,15 @@ function FormatDate($datetime)
 	}
 	return $retArray;
 }
+//-----------------------------------------------
+//  RE-FORMAT TO DATETIME
+function reformat_date($date)
+{
+	$tmp = explode('.', $date);
+	$ret =  date( 'Y-m-d 00:00:00', strtotime($tmp[0] . '-' . $tmp[1] . '-' . $tmp[2])) ;
+	
+	return $ret;
+}
 //  ----------------------------------------------
 function FriendlyDate($datetime)
 {
@@ -188,50 +197,99 @@ function TimeToStr($date)
 	$time1		= strtotime(date('Y-m-d H:i:s', time()));
 	$time2      = strtotime($date);
 
-	$timeDif = $time1-$time2;
+	if($time1 > $time2) {
+		$timeDif = $time1-$time2;
 
-	if($timeDif > 59) // seconds
-	{
-		if($timeDif > 3599) //  minutes
+		if($timeDif > 59) // seconds
 		{
-			if($timeDif > 86399) //  hours
+			if($timeDif > 3599) //  minutes
 			{
-				if($timeDif > 2678400) //  days
+				if($timeDif > 86399) //  hours
 				{
-					if($timeDif > 15552000) // months
+					if($timeDif > 2678400) //  days
 					{
-						if($timeDif > 31535999) //  years
+						if($timeDif > 15552000) // months
 						{
-							$retString =  'over a year ago';
-						} 
+							if($timeDif > 31535999) //  years
+							{
+								$retString =  'over a year ago';
+							} 
+							else
+							{
+								$retString = 'over 6 month ago';	
+							}
+						}
 						else
 						{
-							$retString = 'over 6 month(s) ago';	
+							$retString = round(($timeDif /= (30*24*60*60)),0,PHP_ROUND_HALF_DOWN) . ' month(s) ago';	
 						}
 					}
 					else
 					{
-						$retString = round(($timeDif /= (30*24*60*60)),0,PHP_ROUND_HALF_DOWN) . ' month(s) ago';	
+						$retString = round(($timeDif /= (24*60*60)),0,PHP_ROUND_HALF_DOWN) . ' days ago';	
 					}
 				}
 				else
 				{
-					$retString = round(($timeDif /= (24*60*60)),0,PHP_ROUND_HALF_DOWN) . ' days ago';	
+					$retString = round(($timeDif /= (60*60)),0,PHP_ROUND_HALF_DOWN) . ' hours ago';	
 				}
 			}
 			else
 			{
-				$retString = round(($timeDif /= (60*60)),0,PHP_ROUND_HALF_DOWN) . ' hours ago';	
+				$retString = round(($timeDif /= 60),0,PHP_ROUND_HALF_DOWN) . ' minutes ago';	
 			}
 		}
 		else
 		{
-			$retString = round(($timeDif /= 60),0,PHP_ROUND_HALF_DOWN) . ' minutes ago';	
+			$retString = round($timeDif,0,PHP_ROUND_HALF_DOWN) . ' seconds ago';
 		}
 	}
-	else
-	{
-		$retString = round($timeDif,0,PHP_ROUND_HALF_DOWN) . ' seconds ago';
+	else {
+		$timeDif = $time2-$time1;
+
+		if($timeDif > 59) // seconds
+		{
+			if($timeDif > 3599) //  minutes
+			{
+				if($timeDif > 86399) //  hours
+				{
+					if($timeDif > 2678400) //  days
+					{
+						if($timeDif > 15552000) // months
+						{
+							if($timeDif > 31535999) //  years
+							{
+								$retString =  'over a year';
+							} 
+							else
+							{
+								$retString = 'over 6 months';	
+							}
+						}
+						else
+						{
+							$retString = round(($timeDif /= (30*24*60*60)),0,PHP_ROUND_HALF_DOWN) . ' months';	
+						}
+					}
+					else
+					{
+						$retString = round(($timeDif /= (24*60*60)),0,PHP_ROUND_HALF_DOWN) . ' days';	
+					}
+				}
+				else
+				{
+					$retString = round(($timeDif /= (60*60)),0,PHP_ROUND_HALF_DOWN) . ' hours';	
+				}
+			}
+			else
+			{
+				$retString = round(($timeDif /= 60),0,PHP_ROUND_HALF_DOWN) . ' minutes';	
+			}
+		}
+		else
+		{
+			$retString = round($timeDif,0,PHP_ROUND_HALF_DOWN) . ' seconds';
+		}	
 	}
 		
 	return $retString;

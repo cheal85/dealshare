@@ -30,7 +30,7 @@ if (isset($_GET['url'])) {
 }
 //  ---------------------------------------------------------------
 //  SEARCH AND BROWSING OPTIONS
-$search = $_GET['search'];
+if( isset($_GET['search']) ) $search = $_GET['search'];
 
 //  ---------------------------------------------------------------
 //  INITATE DB CONNECTION
@@ -84,7 +84,6 @@ $myMailManager = new MailManager();
 require_once (DIR_PHP . '/arrays.php');
 
 
-
 //  ---------------------------------------------------------------
 //  check for remember_me cookie
 $user_id = $_COOKIE['dealshare_user_id'];
@@ -122,7 +121,7 @@ else
 }
 //  ---------------------------------------------------------------
 //  set if user has agreed to cookie policy
-if($_COOKIE['dealshare_allow_cookies'] && ($_COOKIE['dealshare_allow_cookies'] = 1)) {
+if($_COOKIE['dealshare_allow_cookies'] && ($_COOKIE['dealshare_allow_cookies'] == 1)) {
 	$ALLOW_COOKIES = true;
 	//  set new cookie
 	$past = (time() - (60*60*24));  //  yesterday
@@ -135,5 +134,17 @@ if($_COOKIE['dealshare_allow_cookies'] && ($_COOKIE['dealshare_allow_cookies'] =
 else {
 	$ALLOW_COOKIES = false;
 }
+
 //  ---------------------------------------------------------------
+//  check if they have already seen the prize
+if( ($_COOKIE['dealshare_prize'] && ($_COOKIE['dealshare_prize'] == 1) ) || LOGGED_IN ) {
+	$show_prize = 0;
+	#$past = (time() - (60*60*24));  //  yesterday
+	#setcookie('dealshare_prize', 0, $past, '');
+}
+else {
+	$show_prize = 1;
+	$six_months = (time() + (60*60*24*182));
+	setcookie('dealshare_prize', 1, $six_months, ''); //  set new cookie
+}
 ?>

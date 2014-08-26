@@ -5,7 +5,7 @@ require_once(ROOT . '/scripts/config.php');
 require_once(DIR_PHP . '/loader.php');
 //  -----------------------------------------------------
 //  PAGE SPECIFIC DATA
-define('PAGE_TITLE', 'Add Deal | Dealshare.ie');
+define('PAGE_TITLE', 'Share a Deal | Dealshare.ie');
 define('PAGE_DESCRIPTION', 'Dealshare.ie | Share new deals with the dealshare community or edit and update an existing deal');
 //  -----------------------------------------------------
 //  SET PAGE AND NAV SELECTION
@@ -71,6 +71,7 @@ if(!LOGGED_IN) header('location: /');
         		<div class="central-block" >
                 	<?php 
 					include(DIR_TEMPLATES . '/temp_account_sidebar.php'); 
+					
 					include(DIR_TEMPLATES . '/temp_account_add-deal.php'); 
 					?>
                	</div>

@@ -2,7 +2,6 @@
 * http://jqueryui.com
 * Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.position.js, jquery.ui.datepicker.js, jquery.ui.effect.js, jquery.ui.effect-fade.js
 * Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
-
 (function( $, undefined ) {
 
 var uuid = 0,

@@ -12,12 +12,12 @@ $(document).ready(function(){
 			// pass the dom node (ex. $(selector)[0] for jQuery users)
 			element: document.getElementById('user-uploader'),
 			// path to server-side upload script
-			action: '/scripts/processing/ajax.content.upload.php',
+			action: '/scripts/processing/ajax.image.upload.php',
 			
 			onSubmit: function(id, fileName){
 				element =  $('div.image-gallery'),
-				$('div.js-avatar img.content').hide(),
-				Loading($('div.js-avatar'), 'show')
+				$('div.js-image img.content').hide(),
+				Loading($('div.js-image'), 'show')
 			},
 
 			onComplete: function(id, fileName, responseJSON){
@@ -33,17 +33,17 @@ $(document).ready(function(){
 			$.post('/scripts/processing/ajax.user.image.process.php', {'id':upload['id'], 'submit': true}, function(response)
 			{
 				$('input#id_image').val(upload['id']);
-				Loading($('div.js-avatar'), 'hide');
+				Loading($('div.js-image'), 'hide');
 				//  ----------------------------------------
 				//  Display new image
 				var source = upload['path'] + 'medium/' + upload['filename'];
 				console.log(source);
-				var $avatar = $('div.js-avatar');
+				var $avatar = $('div.js-image');
 				var $image = $avatar.find('img.content');
 				$image.attr('src', source);
 				//  remove orientation
-				$('div.js-avatar').css('width', '150px'),
-				$('div.js-avatar').css('height', '150px')
+				$('div.js-image').css('width', '150px'),
+				$('div.js-image').css('height', '150px')
 				$image.removeClass('landscape');
 				$image.removeClass('portrait');
 				$image.addClass(upload['orientation']);

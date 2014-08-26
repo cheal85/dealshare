@@ -1,37 +1,35 @@
 
-<div class="span-12 left ">
-	<div class="padding-10 ">
-		<div class="">
+<div class="span-6 res centre ">
+	<div class="padding-20 left">
 
-			<div id="account-main-top"  class="back-color-2 span-12 shadow" >
-			   	<div class="padding-10">
-					<h2 class="color-6">Dealshare.ie Account Activation</h2>
-					<p class="color-6 medium">It is necesary to verify your email before activating your account</p>
-			    </div>
-			</div>
+		<?php
+			if($user = $myUserManager -> GetWhere(array('id', 'hash', 'active'), array($USER_ID, $USER_HASH, 'no'))) {
+			#if(1) {
+				
+				$myUserManager -> UpdateEntry($USER_ID, 'active', 'yes');
+				echo '<h2 class="text-centre" >Account Activated</h2>';
+				
+				echo '<div class="sep-20 left">&nbsp;</div>';
+				
+				echo '<p class="clear" >Your Account has been activated.  Please login below to start sharing and saving on dealshare.ie and remember to thank our members when you see a great deal. </p>';
+				echo '<div class="sep-20 left">&nbsp;</div>';
+				echo '<p class="clear" ><a href="/about/" title="Read more">Read more about dealshare.ie..</a></p>';
+				
+				echo '<div class="sep-20 left">&nbsp;</div>';
+				#$account_email = $user[0]['email'];
+				$account_email = $USER['email'];
+				include(DIR_FORMS . '/form_account_login.php');
+			}
+			else {
+				echo '<h2 class="text-centre" >Your Account could not be activated</h2>';
+				
+				echo '<div class="sep-20 left">&nbsp;</div>';
+				echo '<p class="clear" >There was a problem verifying your account details.  Please ensure that you used the correct link to get to this page.</p>';
+				echo '<div class="sep-20 left">&nbsp;</div>';
+				echo '<p class="clear" >If this problem persists please <a href="/contact/" title="Contact us">Contact</a> us about the problem.</p>';
+			}
+		?>
 			
-			<div class="sep-20">&nbsp;</div>
-			
-			<div class="span-12 shadow clear left" >
-				<div class="padding-20 " >
-                <?php
-					if($user = $myUserManager -> GetWhere(array('id', 'hash', 'active'), array($USER_ID, $USER_HASH, 'no'))) {
-						
-						$myUserManager -> UpdateEntry($USER_ID, 'active', 'yes');
-						echo '<h2 class="color-2" >Thank you for Activating your account</h2>';
-						
-						echo '<p>Your Account has been activated.  You can now <a id="login-link" href="javascript:;" title="Login to your account" >Login</a> to your account</p>';
-					}
-					else {
-						echo '<h2 class="color-2" >Your Account could not be activated</h2>';
-						
-						echo '<p>There was a problem verifying your account details.</p>';
-					}
-				?>
-			    </div>
-			</div>
-			
-		</div>
 	</div>
 </div>
 

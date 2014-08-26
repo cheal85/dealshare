@@ -175,7 +175,7 @@ div.message {
 	position: relative;
 	min-height: 35px;
 	line-height: 15px;
-	background: #42bb9c url('/web_graphics/icons/notice.png') 5px center no-repeat;
+	background: #00d2a3 url('/web_graphics/icons/notice.png') 5px center no-repeat;
 }
 .message-panel p{
 	color: #fff;
